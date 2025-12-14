@@ -90,10 +90,11 @@ src/
 │   └── supabase/
 │
 └── main.tsx
+```
 
 ---
 
-## 🔁 User Flow
+### 🔁 User Flow
 
 1. User signs up or logs in using secure authentication  
 2. User applies for a loan via the AI-powered chatbot  
@@ -134,39 +135,47 @@ src/
 ```bash
 git clone https://github.com/your-username/loanpal.git
 cd loanpal
+```
 
 
 ###2️⃣ Install dependencies
+```bash
 npm install
+```
 
 ###3️⃣ Setup environment variables
+```bash
 
 Create a .env file in the root directory:
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
 ###4️⃣ Run the application
+```bash
 npm run dev
 ```
 
 ---
 
-###📌 Future Enhancements
+### 📌 Future Enhancements
 
-Admin dashboard
+### 1) Admin dashboard
 
-Multi-bank loan offers
+### 2) Multi-bank loan offers
 
-EMI calculator
+### 3) EMI calculator
 
-WhatsApp / Email notifications
+### 4) WhatsApp / Email notifications
 
-Credit score integration
+### 5) Credit score integration
 
-Support ticket system
+### 6) Support ticket system
 
-###👨‍💻 Author
+---
 
-Neeraj Kumar
+### 👨‍💻 Author
+
+Made by Neeraj Kumar , 
 LoanPal – AI-driven loan approval platform
 Built with ❤️ using React, Supabase & AI
