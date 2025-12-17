@@ -1,4 +1,4 @@
-import { Bot, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Bot, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Github, GithubIcon } from 'lucide-react';
 import TermsOfService from '@/pages/TermsOfService';
 import RBICompliance from '@/pages/RBICompliance';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
@@ -23,17 +23,17 @@ export default function Footer() {
               Your AI-powered personal loan assistant. Making loan approvals smarter, faster, and more transparent.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
-                <Facebook className="w-5 h-5" />
+              <a href="https://github.com/Neerajkumar151" target='blank' className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
+                <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
+              <a href="https://x.com/neerajkumar1715" target='blank' className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
+              <a href="https://www.linkedin.com/in/neerajkumar1517/" target='blank' className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
-                <Instagram className="w-5 h-5" />
+              <a href="thakurneerajkumar17@gmail.com" target='blank' className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/60 text-sm">
-              © 2024 LoanPal. All rights reserved.
+              © 2025 LoanPal. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="Privacy-Policy" className="hover:text-primary transition-colors">Privacy Policy</a>
