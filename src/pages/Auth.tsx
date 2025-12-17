@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Loader2, Mail, Lock, User, ArrowLeft } from 'lucide-react';
 import { z } from 'zod';
 
@@ -132,7 +133,7 @@ export default function Auth() {
 
       <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-background to-secondary/30">
         {/* Header */}
-        <header className="p-4">
+        <header className="p-4 flex items-center justify-between">
           <Button 
             variant="ghost" 
             onClick={() => navigate('/')}
@@ -141,6 +142,7 @@ export default function Auth() {
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Button>
+          <ThemeToggle />
         </header>
 
         {/* Main Content */}
