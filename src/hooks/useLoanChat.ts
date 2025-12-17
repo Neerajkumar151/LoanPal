@@ -304,13 +304,19 @@ export function useLoanChat() {
 
     // Handle based on intent
     switch (intentResult.intent) {
+      case 'gratitude':
+  response = "You're most welcome! 😊 I'm glad I could help. Let me know if you need anything else."
+  break;
+
       case 'greeting':
-        if (applicationContext.hasExistingApplication) {
-          response = `Hello again! 👋 Great to see you back.\n\nI see you have a ${applicationContext.applicationStatus} loan application${applicationContext.loanAmount ? ` for ₹${applicationContext.loanAmount.toLocaleString('en-IN')}` : ''}.\n\nHow can I help you today? Would you like to:\n• Check your application status\n• Know more about your application\n• Start a new application`;
-        } else {
-          response = "Hello there! 😊 It's great to hear from you. I'm here to help you with any loan-related questions or assist you in applying for a personal loan. How can I help you today?";
-        }
-        break;
+  // Only greet if this is the first user interaction
+  if (messages.length <= 1) {
+    response = "Hello! 👋 How can I help you today?"
+  } else {
+    response = intentResult.suggestedResponse || "How can I help you?"
+  }
+  break;
+
 
       case 'check_status':
         if (applicationContext.hasExistingApplication) {
