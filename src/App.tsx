@@ -11,6 +11,10 @@ import Auth from "./pages/Auth";
 import Apply from "./pages/Apply";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import RBICompliance from "./pages/RBICompliance";
+import TermsOfService from "./pages/TermsOfService";
+import { FileText, Shield, Scale } from 'lucide-react';
 
 const queryClient = new QueryClient();
 
@@ -28,6 +32,9 @@ const App = () => (
               <Route path="/apply" element={<Apply />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/rbi-compliance" element={<RBICompliance />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

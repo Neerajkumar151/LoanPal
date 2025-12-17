@@ -41,13 +41,13 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-secondary/50 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
             Key Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Powerful features designed to make your loan application experience seamless and stress-free
           </p>
         </div>
@@ -58,18 +58,18 @@ export default function Features() {
             return (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-8 shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-gray-300/50 transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+                className="group bg-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-border"
               >
                 <div className="flex flex-col space-y-4">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-7 h-7 text-white" />
+                    <Icon className="w-7 h-7 text-primary-foreground" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-foreground">
                     {feature.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
