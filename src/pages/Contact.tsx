@@ -51,7 +51,7 @@ export default function Contact() {
                     <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
-                      <p className="text-muted-foreground">support@loanpal.in</p>
+                      <p className="text-muted-foreground">thakurneerajkumar017@gmail.com</p>
                     </div>
                   </div>
 
@@ -59,7 +59,7 @@ export default function Contact() {
                     <Phone className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mt-1" />
                     <div>
                       <p className="font-semibold text-foreground">Phone</p>
-                      <p className="text-muted-foreground">1800-123-456</p>
+                      <p className="text-muted-foreground">8448275790</p>
                     </div>
                   </div>
 
@@ -68,7 +68,7 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-foreground">Office</p>
                       <p className="text-muted-foreground">
-                        Mumbai, Maharashtra, India
+                        Barola sector-49 Noida, India
                       </p>
                     </div>
                   </div>

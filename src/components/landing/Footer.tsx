@@ -85,8 +85,8 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-background/60">Email</p>
-                  <a href="mailto:support@loanpal.in" className="hover:text-primary transition-colors">
-                    support@loanpal.in
+                  <a href="mailto:thakurneerajkumar017@gmail.com" className="hover:text-primary transition-colors">
+                    thakurneerajkumar017@gmail.com
                   </a>
                 </div>
               </li>
@@ -94,8 +94,8 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-background/60">Phone</p>
-                  <a href="tel:+911800123456" className="hover:text-primary transition-colors">
-                    1800-123-456
+                  <a href="tel:+918448275790" className="hover:text-primary transition-colors">
+                    8448275790
                   </a>
                 </div>
               </li>
@@ -103,7 +103,7 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-background/60">Address</p>
-                  <p>Mumbai, Maharashtra, India</p>
+                  <p>Barola Sector-49 Noida, India</p>
                 </div>
               </li>
             </ul>

@@ -133,7 +133,7 @@ export default function HelpCenter() {
                   </div>
                   <div className="text-left">
                     <p className="text-xs text-muted-foreground font-bold uppercase tracking-wide">Email Support</p>
-                    <a href="mailto:support@platform.com" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">support@platform.com</a>
+                    <a href="mailto:thakurneerajkumar017@gmail.com" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">thakurneerajkumar017@gmail.com</a>
                   </div>
                 </div>
 
@@ -143,7 +143,7 @@ export default function HelpCenter() {
                   </div>
                   <div className="text-left">
                     <p className="text-xs text-muted-foreground font-bold uppercase tracking-wide">Call Us</p>
-                    <p className="text-foreground font-semibold">+91 1800-123-4567</p>
+                    <p className="text-foreground font-semibold">+91 8448275790</p>
                   </div>
                 </div>
               </div>
