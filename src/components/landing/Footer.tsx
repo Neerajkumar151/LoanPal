@@ -1,4 +1,7 @@
 import { Bot, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import TermsOfService from '@/pages/TermsOfService';
+import RBICompliance from '@/pages/RBICompliance';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
 
 export default function Footer() {
   return (
@@ -49,7 +52,7 @@ export default function Footer() {
                 <a href="/dashboard" className="hover:text-primary transition-colors">Dashboard</a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-primary transition-colors">Contact Us</a>
+                <a href="RBI-Compliance" className="hover:text-primary transition-colors">RBI Compilance</a>
               </li>
             </ul>
           </div>
@@ -58,16 +61,16 @@ export default function Footer() {
             <h3 className="text-background font-bold text-lg mb-6">Support</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#help" className="hover:text-primary transition-colors">Help Center</a>
+                <a href="Help-Center" className="hover:text-primary transition-colors">Help Center</a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-primary transition-colors">FAQs</a>
+                <a href="FAQ" className="hover:text-primary transition-colors">FAQs</a>
               </li>
               <li>
-                <a href="#privacy" className="hover:text-primary transition-colors">Privacy Policy</a>
+                <a href="Privacy-Policy" className="hover:text-primary transition-colors">Privacy Policy</a>
               </li>
               <li>
-                <a href="#terms" className="hover:text-primary transition-colors">Terms of Service</a>
+                <a href="Terms-of-Service" className="hover:text-primary transition-colors">Terms of Service</a>
               </li>
               <li>
                 <a href="/contact" className="hover:text-primary transition-colors">Contact Us</a>
@@ -113,9 +116,9 @@ export default function Footer() {
               © 2024 LoanPal. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#privacy" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#terms" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#compliance" className="hover:text-primary transition-colors">RBI Compliance</a>
+              <a href="Privacy-Policy" className="hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="Terms-of-Service" className="hover:text-primary transition-colors">Terms of Service</a>
+              <a href="RBI-Compliance" className="hover:text-primary transition-colors">RBI Compliance</a>
             </div>
           </div>
         </div>

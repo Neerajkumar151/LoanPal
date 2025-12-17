@@ -12,6 +12,11 @@ import Apply from "./pages/Apply";
 import Dashboard from "./pages/Dashboard";
 import EMICalculator from "./pages/EMICalculator";
 import NotFound from "./pages/NotFound";
+import TermsOfService from "./pages/TermsOfService";
+import RBICompliance from "./pages/RBICompliance";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import HelpCenter from "./pages/HelpCenter";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +35,11 @@ const App = () => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/emi-calculator" element={<EMICalculator />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+              <Route path="/RBI-Compliance" element={<RBICompliance />} />
+              <Route path="/Terms-of-Service" element={<TermsOfService />} />
+              <Route path="/Help-Center" element={<HelpCenter />} />
+              <Route path="/FAQ" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
