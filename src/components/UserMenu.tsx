@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { User, LogOut, Settings } from 'lucide-react';
+import { User, LogOut, Settings, LayoutDashboard, Calculator } from 'lucide-react';
 
 export function UserMenu() {
   const navigate = useNavigate();
@@ -78,13 +78,13 @@ export function UserMenu() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => navigate('/profile')}>
-          <User className="mr-2 h-4 w-4" />
-          Profile
+        <DropdownMenuItem onClick={() => navigate('/dashboard')}>
+          <LayoutDashboard className="mr-2 h-4 w-4" />
+          Dashboard
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => navigate('/profile')}>
-          <Settings className="mr-2 h-4 w-4" />
-          Settings
+        <DropdownMenuItem onClick={() => navigate('/emi-calculator')}>
+          <Calculator className="mr-2 h-4 w-4" />
+          EMI Calculator
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut} className="text-destructive">

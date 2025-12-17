@@ -28,7 +28,7 @@ export default function Auth() {
 
   useEffect(() => {
     if (!loading && user) {
-      navigate('/apply');
+      navigate('/');
     }
   }, [user, loading, navigate]);
 
@@ -85,7 +85,7 @@ export default function Auth() {
             title: 'Welcome back!',
             description: 'You have successfully logged in.',
           });
-          navigate('/apply');
+          navigate('/');
         }
       } else {
         const { error } = await signUp(email, password, fullName);
