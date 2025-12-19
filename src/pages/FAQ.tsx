@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 export default function FAQ() {
   const [activeCategory, setActiveCategory] = useState('general');
@@ -173,6 +174,7 @@ export default function FAQ() {
       </main>
 
       <Footer />
+      <FloatingChatbot/>
     </div>
   );
 }

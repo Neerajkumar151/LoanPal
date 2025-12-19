@@ -1,5 +1,6 @@
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
+import FloatingChatbot from "@/components/FloatingChatbot";
 
 export default function RBICompliance() {
   return (
@@ -526,6 +527,7 @@ export default function RBICompliance() {
       </main>
 
       <Footer />
+      <FloatingChatbot/>
     </div>
   );
 }

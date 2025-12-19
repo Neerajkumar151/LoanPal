@@ -11,3 +11,6 @@ verify_jwt = false
 
 [functions.chat-intent]
 verify_jwt = false
+
+[functions.gemini-chat]
+verify_jwt = false

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 export default function HelpCenter() {
   // Simple state for FAQ accordion toggle
@@ -162,6 +163,7 @@ export default function HelpCenter() {
       </main>
 
       <Footer />
+      <FloatingChatbot/>
     </div>
   );
 }

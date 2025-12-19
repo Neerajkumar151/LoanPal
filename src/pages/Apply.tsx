@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { useAuth } from '@/hooks/useAuth';
 import { LoanChat } from '@/components/chat/LoanChat';
 import { Loader2 } from 'lucide-react';
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 export default function Apply() {
   const { user, loading } = useAuth();
@@ -29,11 +30,13 @@ export default function Apply() {
 
   return (
     <>
+    
       <Helmet>
         <title>Apply for Loan - AI Loan Assistant</title>
         <meta name="description" content="Apply for a personal loan with our AI-powered assistant. Quick and easy application process." />
       </Helmet>
       <LoanChat />
+      <FloatingChatbot/>
     </>
   );
 }

@@ -12,6 +12,7 @@ import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, Calculator, IndianRupee, Percent, Calendar, TrendingUp, PiggyBank } from 'lucide-react';
 import Footer from '@/components/landing/Footer';
 import { Bot } from 'lucide-react';
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 export default function EMICalculator() {
   const navigate = useNavigate();
@@ -290,6 +291,7 @@ export default function EMICalculator() {
         </main>
       </div>
       <Footer/>
+      <FloatingChatbot/>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
+import FloatingChatbot from "@/components/FloatingChatbot";
 
 export default function TermsOfService() {
   return (
@@ -454,6 +455,7 @@ export default function TermsOfService() {
       </main>
 
       <Footer />
+      <FloatingChatbot/>
     </div>
   );
 }

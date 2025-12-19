@@ -35,6 +35,7 @@ import {
   AlertCircle,
   PartyPopper
 } from 'lucide-react';
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 interface Profile {
   id: string;
@@ -621,6 +622,7 @@ export default function Profile() {
           )}
         </DialogContent>
       </Dialog>
+      <FloatingChatbot/>
     </>
   );
 }

@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 export default function Contact() {
   return (
@@ -113,6 +114,7 @@ export default function Contact() {
         </div>
       </div>
       <Footer/>
+      <FloatingChatbot/>
     </>
   );
 }

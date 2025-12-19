@@ -7,6 +7,7 @@ import WhyChoose from '@/components/landing/WhyChoose';
 import Trust from '@/components/landing/Trust';
 import CTA from '@/components/landing/CTA';
 import Footer from '@/components/landing/Footer';
+import FloatingChatbot from '@/components/FloatingChatbot';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <FloatingChatbot />
     </>
   );
 }
