@@ -52,17 +52,9 @@ export function useAuth() {
   };
 
   const signOut = async () => {
-  await supabase.auth.signOut();
-
-  // Clear local state immediately
-  setUser(null);
-  setSession(null);
-
-  // Force reload to clear Supabase session cache
-  window.location.href = "/auth";
-};
-
-
+    const { error } = await supabase.auth.signOut();
+    return { error };
+  };
 
   const signInWithGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
