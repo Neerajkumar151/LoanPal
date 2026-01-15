@@ -707,6 +707,24 @@ export function useLoanChat() {
 
     let response = '';
     if (result.decision === 'approved') {
+
+      //  🟢 START NEW CODE: Automatically save to 'loans' table for Disbursement 🟢
+      if (userId && loanDetails.amount) {
+        const { error: loanDbError } = await supabase.from('loan_applications').insert({
+          user_id: userId,
+          amount: loanDetails.amount,
+          status: 'approved'
+        });
+        
+        if (loanDbError) {
+          console.error("Error creating approved loan record:", loanDbError);
+        } else {
+          console.log("Loan automatically approved in database!");
+        }
+      }
+      // 🟢 END NEW CODE 🟢
+
+
       response = `🎉 **Congratulations!** Your loan has been **APPROVED**!\n\n` +
         `📋 **Loan Details:**\n` +
         `• Amount: ₹${loanDetails.amount.toLocaleString('en-IN')}\n` +

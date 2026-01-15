@@ -19,6 +19,9 @@ import HelpCenter from "./pages/HelpCenter";
 import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 
+import GetLoanAmount from "./pages/GetLoanAmount";
+import LoanRepayment from "./pages/LoanRepayment";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -43,6 +46,8 @@ const App = () => (
               <Route path="/Help-Center" element={<HelpCenter />} />
               <Route path="/FAQ" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/get-loan" element={<GetLoanAmount />} />
+              <Route path="/repayment" element={<LoanRepayment />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>

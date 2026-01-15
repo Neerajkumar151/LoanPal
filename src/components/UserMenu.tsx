@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { User, LogOut, Settings, LayoutDashboard, Calculator } from 'lucide-react';
+import { CreditCard, DollarSign, User, LogOut, Settings, LayoutDashboard, Calculator } from 'lucide-react';
 
 export function UserMenu() {
   const navigate = useNavigate();
@@ -85,6 +85,14 @@ export function UserMenu() {
         <DropdownMenuItem onClick={() => navigate('/emi-calculator')}>
           <Calculator className="mr-2 h-4 w-4" />
           EMI Calculator
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/get-loan")}>
+          <DollarSign className="mr-2 h-4 w-4" />
+          <span>Get Loan Amount</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate("/repayment")}>
+          <CreditCard className="mr-2 h-4 w-4" />
+          <span>Pay EMI (Repayment)</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
