@@ -24,10 +24,21 @@ It helps users apply for loans, understand approval or rejection reasons, and do
 - Immediate approval / rejection / manual review
 - Clear rejection reasons with improvement guidance
 
-### 📄 Sanction Letter Generation
-- Auto-generated PDF sanction letters
-- Downloadable anytime from the Profile page
-- Available for all approved loans
+### 💸 Smart Loan Disbursement
+- **Sanction Letter Verification:** Users upload their approved letter to unlock funds
+- **Secure Disbursement:** Checks against approved loan records before releasing money
+- **Instant Transfer:** Simulates real-time fund transfer to the user's bank account
+
+### 💳 EMI Repayment System
+- **Razorpay Integration:** Secure monthly EMI payments (Test Mode)
+- **Multi-Loan Support:** Manage and repay multiple active loans from a single dashboard
+- **Smart Penalty Logic:** Automatically calculates late fees (₹500 + 2%) for overdue payments
+- **Visual Progress:** Track remaining balance and repayment progress bars
+
+### 📄 Document Generation
+- **Sanction Letters:** Auto-generated PDF upon loan approval
+- **Payment Receipts:** Professional PDF receipts generated instantly after every EMI payment
+- All documents downloadable anytime from the dashboard
 
 ### 📊 Loan Application History
 - View all past applications
@@ -175,13 +186,11 @@ npm run dev
 
 **2) Multi-bank loan offers** 
 
-**3) EMI calculator**
+**3) WhatsApp / Email notifications**
 
-**4) WhatsApp / Email notifications**
+**4) Credit score integration**
 
-**5) Credit score integration**
-
-**6) Support ticket system**
+**5) Support ticket system**
 
 ---
 
