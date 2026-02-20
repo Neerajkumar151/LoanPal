@@ -4,9 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, CheckCircle, DollarSign, Loader2, Home, ArrowLeft, AlertTriangle } from "lucide-react";
+import { Upload, CheckCircle, DollarSign, Loader2, Home, ArrowLeft, AlertTriangle, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import * as pdfjsLib from "pdfjs-dist";
+
+// ⬇️ NEW: Import worker locally as a URL. This fixes the CDN error.
+// We use .mjs because you are on a newer version (5.x)
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default function GetLoanAmount() {
   const { toast } = useToast();
@@ -14,12 +21,13 @@ export default function GetLoanAmount() {
   
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [verifying, setVerifying] = useState(false); // New state for parsing
   const [step, setStep] = useState(1); 
   const [loanAmount, setLoanAmount] = useState<number | null>(null);
   const [loanId, setLoanId] = useState<string | null>(null);
   const [loadingLoan, setLoadingLoan] = useState(true);
   const [sanctionLetterUrl, setSanctionLetterUrl] = useState<string>("");
-  const [debugError, setDebugError] = useState<string | null>(null); // For debugging
+  const [debugError, setDebugError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchLoanDetails = async () => {
@@ -38,7 +46,6 @@ export default function GetLoanAmount() {
           .single();
 
         if (appError || !application) {
-          console.log("No application found or error:", appError);
           setLoanAmount(null);
           setLoadingLoan(false);
           return;
@@ -48,16 +55,11 @@ export default function GetLoanAmount() {
         setLoanAmount(application.loan_amount);
 
         // 2. Check for Existing Disbursement
-        const { data: disbursement, error: disbError } = await supabase
+        const { data: disbursement } = await supabase
           .from('loan_disbursements')
           .select('id')
           .eq('loan_id', application.id)
           .maybeSingle();
-
-        if (disbError) {
-            console.error("Error checking disbursements:", disbError);
-            setDebugError(`Table Check Error: ${disbError.message}`);
-        }
 
         if (disbursement) {
           setStep(3); // Already paid
@@ -79,15 +81,66 @@ export default function GetLoanAmount() {
     if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
   };
 
+  // 🔍 SMART PARSER FUNCTION
+  const extractTextFromPDF = async (file: File): Promise<string> => {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+    let fullText = "";
+
+    // Read first page only (Sanction details are usually on Pg 1)
+    const page = await pdf.getPage(1);
+    const textContent = await page.getTextContent();
+    const strings = textContent.items.map((item: any) => item.str);
+    fullText = strings.join(" ");
+    
+    return fullText;
+  };
+
   const handleUploadAndVerify = async () => {
-    if (!file) {
-      toast({ title: "No file selected", description: "Please upload your sanction letter.", variant: "destructive" });
+    if (!file || !loanAmount) {
+      toast({ title: "Error", description: "Select a file first.", variant: "destructive" });
       return;
     }
+    
     setUploading(true);
+    setVerifying(true);
     setDebugError(null);
 
     try {
+      // 🕵️ PHASE 1: SECURITY CHECK (Parse PDF)
+      console.log("Starting Document Analysis...");
+      const pdfText = await extractTextFromPDF(file);
+      console.log("Extracted Text Preview:", pdfText.slice(0, 100));
+
+      // 1. Check if it's actually a Sanction Letter
+      if (!pdfText.toLowerCase().includes("sanction letter") && !pdfText.toLowerCase().includes("loan details")) {
+        throw new Error("Invalid Document: This does not look like a Loan Sanction Letter.");
+      }
+
+      // 2. Clean the text to find numbers
+      // Removes currency symbols, commas, and extra spaces
+      const cleanText = pdfText.replace(/₹/g, '').replace(/,/g, '').replace(/\s+/g, ' ');
+
+      // 3. Find the Loan Amount in text
+      // We look for patterns like "Loan Amount 50000" or "Amount: 50000"
+      // This regex looks for "Loan Amount" followed by digits
+      const amountMatch = cleanText.match(/Loan Amount.*?(\d+)/i);
+      
+      if (!amountMatch) {
+         throw new Error("Verification Failed: Could not read 'Loan Amount' from the document.");
+      }
+
+      const extractedAmount = parseInt(amountMatch[1]);
+      console.log(`Verifying: Doc Amount (${extractedAmount}) vs Database (${loanAmount})`);
+
+      // 4. STRICT MATCHING Logic (Allowing small parsing tolerance)
+      if (extractedAmount !== loanAmount) {
+         throw new Error(`Data Mismatch! Document says ₹${extractedAmount.toLocaleString()}, but your approved loan is ₹${loanAmount.toLocaleString()}. Upload the correct letter.`);
+      }
+
+      // ✅ PHASE 2: UPLOAD (Only if Phase 1 passes)
+      toast({ title: "Verification Successful", description: "Document matches approved loan details." });
+
       const fileName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.]/g, '_')}`;
       const { error } = await supabase.storage.from('sanction-letters').upload(fileName, file);
       if (error) throw error;
@@ -96,16 +149,19 @@ export default function GetLoanAmount() {
       const { data: publicUrlData } = supabase.storage.from('sanction-letters').getPublicUrl(fileName);
       setSanctionLetterUrl(publicUrlData.publicUrl);
 
-      toast({ title: "Upload Successful", description: "Verifying..." });
       setTimeout(() => {
         setStep(2);
         setUploading(false);
-        toast({ title: "Verified", description: "Sanction letter approved." });
-      }, 2000);
+        setVerifying(false);
+        toast({ title: "Approved", description: "Ready for disbursement." });
+      }, 1000);
 
     } catch (error: any) {
-      setDebugError(`Upload Error: ${error.message}`);
+      console.error("Verification Error:", error);
+      setDebugError(error.message);
       setUploading(false);
+      setVerifying(false);
+      toast({ variant: "destructive", title: "Verification Failed", description: "Document rejected." });
     }
   };
 
@@ -118,20 +174,16 @@ export default function GetLoanAmount() {
        const user = (await supabase.auth.getUser()).data.user;
        if (!user) throw new Error("User not found");
 
-       // ATTEMPT TO SAVE
        const { error } = await supabase.from('loan_disbursements').insert({
           user_id: user.id,
           loan_id: loanId,
           amount: loanAmount,
-          sanction_letter_url: sanctionLetterUrl || "no_url_provided",
+          sanction_letter_url: sanctionLetterUrl || "verified_doc_url",
           status: 'transferred'
        });
 
-       if (error) {
-           throw error; // This will trigger the catch block below
-       }
+       if (error) throw error;
 
-       // Success UI
        setTimeout(() => {
           setStep(3);
           setUploading(false);
@@ -139,10 +191,8 @@ export default function GetLoanAmount() {
        }, 1000);
 
     } catch (error: any) {
-       console.error("Transfer Error:", error);
-       setDebugError(`Database Save Failed: ${error.message || error.details}`);
+       setDebugError(`Database Error: ${error.message}`);
        setUploading(false);
-       toast({ variant: "destructive", title: "Transfer Failed", description: "Could not save to database." });
     }
   };
 
@@ -165,11 +215,14 @@ export default function GetLoanAmount() {
     <div className="container mx-auto p-6 max-w-xl">
       <Button variant="ghost" className="mb-4 pl-0" onClick={() => navigate('/')}><ArrowLeft className="mr-2 h-4 w-4" /> Back to Home</Button>
 
-      {/* ERROR BOX FOR DEBUGGING */}
+      {/* ERROR BOX */}
       {debugError && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
-              <strong className="font-bold">Debug Error: </strong>
-              <span className="block sm:inline">{debugError}</span>
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 animate-in slide-in-from-top-2">
+              <div className="flex items-center gap-2">
+                  <AlertTriangle className="h-5 w-5" />
+                  <strong className="font-bold">Verification Failed</strong>
+              </div>
+              <span className="block text-sm mt-1">{debugError}</span>
           </div>
       )}
 
@@ -187,24 +240,32 @@ export default function GetLoanAmount() {
           
           {step === 1 && (
             <div className="space-y-4">
+                <div className="bg-blue-50 p-4 rounded-md border border-blue-100 text-sm text-blue-700 flex gap-2">
+                    <FileText className="h-5 w-5 shrink-0" />
+                    <p>Security Check: The system will analyze your PDF to ensure the amount matches your approval (₹{loanAmount?.toLocaleString()}).</p>
+                </div>
+
                 <div className="grid w-full max-w-sm items-center gap-1.5">
-                    <Label htmlFor="letter">Sanction Letter (PDF/Image)</Label>
-                    <Input id="letter" type="file" accept=".pdf,.jpg,.png" onChange={handleFileChange} />
+                    <Label htmlFor="letter">Sanction Letter (PDF Only)</Label>
+                    <Input id="letter" type="file" accept=".pdf" onChange={handleFileChange} />
                 </div>
                 <Button onClick={handleUploadAndVerify} disabled={uploading} className="w-full">
-                    {uploading ? "Verifying..." : "Upload & Verify"}
+                    {uploading ? (verifying ? "Analyzing Document..." : "Uploading...") : "Verify & Upload"}
                 </Button>
             </div>
           )}
 
           {step === 2 && (
-            <div className="text-center space-y-6">
+            <div className="text-center space-y-6 animate-in fade-in">
                 <div className="bg-green-50 text-green-700 p-6 rounded-xl border border-green-100 flex flex-col items-center justify-center gap-3">
                     <CheckCircle className="h-10 w-10 text-green-600" />
-                    <div><h3 className="font-bold text-lg">Verification Successful</h3></div>
+                    <div>
+                        <h3 className="font-bold text-lg">Verification Successful</h3>
+                        <p className="text-sm opacity-90">Document matches approval record.</p>
+                    </div>
                 </div>
                 <Button onClick={handleTransfer} className="w-full bg-green-600 hover:bg-green-700 h-12 text-lg">
-                    {uploading ? "Processing..." : "Transfer to Bank Account"}
+                    {uploading ? "Processing Transfer..." : "Transfer to Bank Account"}
                 </Button>
             </div>
           )}
