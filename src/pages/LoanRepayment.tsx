@@ -217,8 +217,6 @@ export default function LoanRepayment() {
     const handlePayment = async () => {
   if (!loanDetails || paying) return;
     setPaying(true);
-
-    console.log("ACTIVE KEY:", import.meta.env.VITE_RAZORPAY_KEY);
     
     const newRemainingBalance = Math.max(stats.remaining - loanDetails.finalPayable, 0);
     
