@@ -214,60 +214,84 @@ export default function LoanRepayment() {
     doc.save(`Receipt_${paymentId}.pdf`);
   };
 
-  const handlePayment = () => {
-    if (!loanDetails) return;
+    const handlePayment = async () => {
+  if (!loanDetails || paying) return;
     setPaying(true);
+
+    console.log("ACTIVE KEY:", import.meta.env.VITE_RAZORPAY_KEY);
     
     const newRemainingBalance = Math.max(stats.remaining - loanDetails.finalPayable, 0);
     
-    const options: any = {
-      key: import.meta.env.VITE_RAZORPAY_KEY, // ⚠️ REPLACE WITH YOUR KEY
-      amount: loanDetails.finalPayable * 100, // Or 10000 for testing
-      currency: "INR",
-      name: "LoanPal Repayment",
-      description: `EMI for Loan #${loanDetails.id.slice(0,6)}`,
-      handler: async (response: any) => {
-        try {
-            const { data: { user } } = await supabase.auth.getUser();
-            if (!user) return;
+    // 1️⃣ Create order from Supabase backend
+const { data: { session } } = await supabase.auth.getSession();
 
-            const { error } = await supabase.from('loan_repayments').insert({
-                user_id: user.id,
-                loan_id: loanDetails.id,
-                amount_paid: loanDetails.finalPayable,
-                razorpay_payment_id: response.razorpay_payment_id,
-                status: 'success'
-            });
+const orderRes = await fetch(
+  `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-order`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${session?.access_token}`, // 🔥 THIS FIXES 401
+    },
+    body: JSON.stringify({
+      amount: loanDetails.finalPayable
+    }),
+  }
+);
 
-            if (error) throw error;
-            toast({ title: "Payment Successful!", description: "History updated." });
-            
-            const paid = loanDetails.finalPayable;
-            
-            setStats(prev => ({
-                totalPaid: prev.totalPaid + paid,
-                remaining: prev.remaining - paid,
-                progress: ((prev.totalPaid + paid) / loanDetails.totalAmount) * 100
-            }));
-            
-            setHistory(prev => [{ payment_date: new Date().toISOString(), amount_paid: paid, razorpay_payment_id: response.razorpay_payment_id }, ...prev]);
-            
-            setLoanDetails((prev: any) => ({ ...prev, isLate: false, penalty: 0, finalPayable: prev.emi, nextDueDate: "Next Month" }));
-            
-            generateSlip(response.razorpay_payment_id, paid, new Date().toISOString(), newRemainingBalance);
+if (!orderRes.ok) {
+  setPaying(false);
+  toast({
+    variant: "destructive",
+    title: "Order Creation Failed",
+    description: "Could not initiate payment."
+  });
+  return;
+}
 
-        } catch (err) {
-            toast({ variant: "destructive", title: "Error", description: "Payment failed to save." });
-        } finally {
-            setPaying(false);
-        }
-      },
-      prefill: { email: "user@example.com", contact: "9999999999" },
-      theme: { color: "#22c55e" },
-    };
+const { orderId } = await orderRes.json();
 
-    const rzp = new Razorpay(options);
-    rzp.open();
+// 2️⃣ Open Razorpay with order_id
+const options: any = {
+  key: import.meta.env.VITE_RAZORPAY_KEY,
+  amount: loanDetails.finalPayable * 100,
+  currency: "INR",
+  order_id: orderId, // 🔥 THIS FIXES YOUR 401 ERROR
+  name: "LoanPal Repayment",
+  description: `EMI for Loan #${loanDetails.id.slice(0,6)}`,
+  handler: async (response: any) => {
+    // 👇 KEEP YOUR EXISTING SUCCESS CODE HERE
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { error } = await supabase.from('loan_repayments').insert({
+        user_id: user.id,
+        loan_id: loanDetails.id,
+        amount_paid: loanDetails.finalPayable,
+        razorpay_payment_id: response.razorpay_payment_id,
+        status: 'success'
+      });
+
+      if (error) throw error;
+
+      toast({ title: "Payment Successful!", description: "History updated." });
+      setPaying(false);
+
+    } catch (err) {
+      toast({ variant: "destructive", title: "Error", description: "Payment failed to save." });
+    }
+  }
+};
+
+options.modal = {
+  ondismiss: () => {
+    setPaying(false);
+  }
+};
+
+const rzp = new Razorpay(options);
+rzp.open();
   };
 
   if (loading) return <div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
