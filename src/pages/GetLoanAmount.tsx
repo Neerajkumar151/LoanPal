@@ -7,7 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Upload, CheckCircle, DollarSign, Loader2, Home, ArrowLeft, AlertTriangle, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import * as pdfjsLib from "pdfjs-dist";
+import * as pdfjsLib from "pdfjs-dist/build/pdf.mjs";
+import Footer from "@/components/landing/Footer";
+import Header from "@/components/landing/Header";
 
 // ⬇️ NEW: Import worker locally as a URL. This fixes the CDN error.
 // We use .mjs because you are on a newer version (5.x)
@@ -196,23 +198,28 @@ export default function GetLoanAmount() {
     }
   };
 
-  if (loadingLoan) return <div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>;
-
-  if (!loanAmount && step !== 3) {
-     return (
-        <div className="container mx-auto p-6 max-w-xl text-center">
-            <Card>
-                <CardContent className="pt-10 space-y-4">
-                    <h2 className="text-xl font-semibold">No Pending Approvals</h2>
-                    <Button onClick={() => navigate("/")} variant="outline"><Home className="mr-2 h-4 w-4" /> Back to Home</Button>
-                </CardContent>
-            </Card>
-        </div>
-     )
-  }
+  
 
   return (
-    <div className="container mx-auto p-6 max-w-xl">
+    <>
+    <Header/>
+     {loadingLoan ? (
+      <div className="flex h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    ) : !loanAmount && step !== 3 ? (
+      <div className="container mx-auto p-6 max-w-xl text-center">
+        <Card>
+          <CardContent className="pt-10 space-y-4">
+            <h2 className="text-xl font-semibold">No Pending Approvals</h2>
+            <Button onClick={() => navigate("/")} variant="outline">
+              <Home className="mr-2 h-4 w-4" /> Back to Home
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    ) : (
+      <div className="container mx-auto p-6 max-w-xl">
       <Button variant="ghost" className="mb-4 pl-0" onClick={() => navigate('/')}><ArrowLeft className="mr-2 h-4 w-4" /> Back to Home</Button>
 
       {/* ERROR BOX */}
@@ -286,5 +293,8 @@ export default function GetLoanAmount() {
         </CardContent>
       </Card>
     </div>
-  );
+    )}
+    <Footer/>
+    </>
+    );
 }

@@ -7,6 +7,8 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { CreditCard, Download, Loader2, CheckCircle, History, Wallet, AlertCircle, ChevronDown, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Footer from "@/components/landing/Footer";
+import Header from "@/components/landing/Header";
 
 export default function LoanRepayment() {
   const { Razorpay } = useRazorpay();
@@ -303,6 +305,8 @@ rzp.open();
   }
 
   return (
+    <>
+    <Header/>
     <div className="container mx-auto p-6 max-w-xl">
       <Button variant="ghost" className="mb-4 pl-0" onClick={() => navigate('/')}><ArrowLeft className="mr-2 h-4 w-4" /> Back to Home</Button>
       <Card className="shadow-lg border-t-4 border-t-green-500">
@@ -416,5 +420,7 @@ rzp.open();
         )}
       </Card>
     </div>
+    <Footer/>
+    </>
   );
 }
