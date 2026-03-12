@@ -1,74 +1,77 @@
-import { Shield, Lock, FileCheck, Award, Users, Landmark } from 'lucide-react';
+import { Shield, Lock, FileCheck, Award, Users, Landmark, CheckCircle2 } from 'lucide-react';
 
 const trustBadges = [
   {
     icon: Shield,
-    title: 'RBI Compliant',
-    description: 'Fully compliant with Reserve Bank of India regulations',
+    title: 'Strictly Compliant',
+    description: 'Adhering rigidly to global and domestic banking regulations.',
   },
   {
     icon: Lock,
-    title: '256-bit Encryption',
-    description: 'Bank-grade security for all your data',
+    title: 'AES-256 Encryption',
+    description: 'Cryptographic security ensuring mathematically impenetrable data states.',
   },
   {
     icon: FileCheck,
-    title: 'Secure Processing',
-    description: 'ISO 27001 certified data centers',
+    title: 'ISO 27001 Certified',
+    description: 'Operating exclusively within zero-trust architecture data centers.',
   },
   {
     icon: Award,
-    title: 'Industry Certified',
-    description: 'Recognized by leading fintech bodies',
+    title: 'Industry Recognized',
+    description: 'Vetted and awarded by premier financial technology consortiums.',
   },
   {
     icon: Users,
-    title: 'Trusted by 50K+',
-    description: 'Growing community of satisfied users',
+    title: '50K+ Verified Profiles',
+    description: 'A continually expanding secure network of approved clients.',
   },
   {
     icon: Landmark,
-    title: 'Partner Banks',
-    description: 'Partnered with top Indian banks',
+    title: 'Tier-1 Partnerships',
+    description: 'Direct liquidity alignment with central and leading commercial banks.',
   },
 ];
 
 export default function Trust() {
   return (
-    <section className="py-20 bg-gradient-to-b from-secondary/50 to-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-6">
+    <section className="py-24 bg-slate-950 border-t border-white/5 relative overflow-hidden">
+      {/* Dynamic Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-accent/20 text-accent px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg shadow-accent/5">
             <Shield className="w-4 h-4" />
-            Your Trust is Our Priority
+            Zero-Trust Architecture
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-display">
             Security & Credibility
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We take your privacy and security seriously. Your data is protected with industry-leading security measures.
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
+            We isolate your financial data within encrypted vaults. Your privacy and systemic security are mathematical certainties, not just promises.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {trustBadges.map((badge, index) => {
             const Icon = badge.icon;
+            const delay = index * 50;
             return (
               <div
                 key={index}
-                className="flex items-start gap-4 bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border"
+                className="group flex flex-col items-center text-center gap-4 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-accent/30 transition-all duration-300 animate-in fade-in slide-in-from-bottom-12 fill-mode-both"
+                style={{ animationDelay: `${delay}ms` }}
               >
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-accent-foreground" />
-                  </div>
+                <div className="w-14 h-14 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all duration-300">
+                  <Icon className="w-6 h-6 text-slate-300 group-hover:text-accent transition-colors" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">
+                  <h3 className="font-bold text-white mb-2 tracking-wide font-display group-hover:text-amber-100 transition-colors">
                     {badge.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-slate-400 font-light leading-relaxed">
                     {badge.description}
                   </p>
                 </div>
@@ -77,58 +80,53 @@ export default function Trust() {
           })}
         </div>
 
-        <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
-          <div className="grid md:grid-cols-2">
-            <div className="p-12 flex flex-col justify-center">
-              <h3 className="text-3xl font-bold text-foreground mb-4">
-                Your Data, Your Control
+        <div className="bg-slate-900 rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative animate-in fade-in zoom-in-95 duration-1000 delay-300 fill-mode-both">
+          {/* Subtle accent glow behind the card */}
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+          <div className="grid md:grid-cols-2 relative z-10">
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+              <h3 className="text-3xl font-bold text-white mb-8 font-display">
+                Your Data, Cryptographically Sealed.
               </h3>
-              <div className="space-y-4 text-muted-foreground">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-accent"></div>
-                  </div>
+              <div className="space-y-6 text-slate-300 font-light">
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
-                    <strong className="text-foreground">End-to-end encryption</strong> ensures your data is never exposed during transmission
+                    <strong className="text-white font-medium">End-to-end encryption</strong> ensures your parameters remain unreadable during transit and rest.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-accent"></div>
-                  </div>
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
-                    <strong className="text-foreground">No data sharing</strong> with third parties without your explicit consent
+                    <strong className="text-white font-medium">Zero unauthorized extraction.</strong> We inherently block third-party analytics without explicit cryptographic consent.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-accent"></div>
-                  </div>
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
-                    <strong className="text-foreground">Regular security audits</strong> by independent cybersecurity firms
+                    <strong className="text-white font-medium">Continuous systemic audits</strong> executed by elite objective cybersecurity red teams.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-accent"></div>
-                  </div>
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
-                    <strong className="text-foreground">GDPR compliant</strong> data handling and storage practices
+                    <strong className="text-white font-medium">GDPR & DPDP mandated</strong> workflows ensuring total user agency over stored records.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-accent/10 to-primary/10 p-12 flex items-center justify-center">
+            <div className="bg-black/40 border-l border-white/5 p-12 flex items-center justify-center backdrop-blur-sm relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-luminosity"></div>
+
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary rounded-3xl rotate-6 opacity-20"></div>
-                <div className="relative bg-card rounded-3xl shadow-2xl p-8 border border-border">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                    <Shield className="w-16 h-16 text-primary-foreground" />
-                  </div>
+                <div className="absolute inset-0 bg-accent/20 rounded-full blur-[60px] animate-pulse"></div>
+                <div className="relative bg-slate-900 border border-white/20 rounded-full shadow-[0_0_50px_rgba(0,0,0,0.8)] h-48 w-48 flex flex-col items-center justify-center backdrop-blur-xl">
+                  <Shield className="w-16 h-16 text-accent mb-3 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-foreground mb-2">100%</div>
-                    <div className="text-muted-foreground font-medium">Secure & Protected</div>
+                    <div className="text-2xl font-bold font-display text-white">100%</div>
+                    <div className="text-xs text-accent uppercase tracking-widest font-semibold">Fortified</div>
                   </div>
                 </div>
               </div>

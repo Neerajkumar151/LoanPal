@@ -51,79 +51,85 @@ export function ChatInput({ onSendMessage, onUploadFiles, isTyping, currentStep 
   const showUpload = currentStep === 'documents';
 
   return (
-    <div className="border-t border-border bg-card p-4">
-      {selectedFiles.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-3">
-          {selectedFiles.map((file, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 bg-secondary px-3 py-1.5 rounded-full text-sm"
-            >
-              <span className="truncate max-w-[150px]">{file.name}</span>
-              <button
-                onClick={() => removeFile(index)}
-                className="text-muted-foreground hover:text-foreground"
+    <div className="w-full max-w-4xl mx-auto px-4 bg-transparent mb-2">
+      <div className="bg-slate-900/90 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] rounded-[2rem] p-3 transition-all focus-within:ring-2 focus-within:ring-accent/20">
+        {selectedFiles.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-3 px-2 pt-1">
+            {selectedFiles.map((file, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-full text-sm border border-white/5"
               >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
-
-      <div className="flex items-center gap-2">
-        {showUpload && (
-          <>
-            <input
-              ref={fileInputRef}
-              type="file"
-              multiple
-              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-              onChange={handleFileSelect}
-              className="hidden"
-            />
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => fileInputRef.current?.click()}
-              className="flex-shrink-0"
-            >
-              <Paperclip className="w-4 h-4" />
-            </Button>
-          </>
+                <span className="truncate max-w-[150px] font-medium text-slate-300">{file.name}</span>
+                <button
+                  onClick={() => removeFile(index)}
+                  className="text-slate-400 hover:text-red-500 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            ))}
+          </div>
         )}
-        
-        <Input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={handleKeyPress}
-          placeholder={
-            selectedFiles.length > 0
-              ? "Click send to upload files..."
-              : showUpload
-              ? "Upload documents or type a message..."
-              : "Type your message..."
-          }
-          className="flex-1"
-          disabled={isTyping}
-        />
-        
-        <Button
-          onClick={handleSend}
-          disabled={(!message.trim() && selectedFiles.length === 0) || isTyping}
-          className={cn(
-            "flex-shrink-0",
-            selectedFiles.length > 0 && "bg-success hover:bg-success/90"
-          )}
-        >
-          <Send className="w-4 h-4" />
-        </Button>
-      </div>
 
+        <div className="flex items-center gap-3">
+          {showUpload && (
+            <>
+              <input
+                ref={fileInputRef}
+                type="file"
+                multiple
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                onChange={handleFileSelect}
+                className="hidden"
+              />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => fileInputRef.current?.click()}
+                className="flex-shrink-0 rounded-full w-12 h-12 hover:bg-slate-800"
+              >
+                <Paperclip className="w-5 h-5 text-slate-400" />
+              </Button>
+            </>
+          )}
+          
+          <Input
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={handleKeyPress}
+            placeholder={
+              selectedFiles.length > 0
+                ? "Click send to upload documents..."
+                : showUpload
+                ? "Upload requested documents or type your query..."
+                : "Type your message..."
+            }
+            className="flex-1 border-0 bg-transparent shadow-none focus-visible:ring-0 text-[15px] px-2 h-12 text-slate-200 placeholder:text-slate-500"
+            disabled={isTyping}
+          />
+          
+          <Button
+            onClick={handleSend}
+            disabled={(!message.trim() && selectedFiles.length === 0) || isTyping}
+            className={cn(
+              "flex-shrink-0 rounded-full w-12 h-12 transition-all p-0 shadow-md",
+              (message.trim() || selectedFiles.length > 0)
+                ? "bg-accent hover:bg-yellow-500 text-slate-900" 
+                : "bg-slate-800 text-slate-500 shadow-none border border-white/5"
+            )}
+          >
+            <Send className="w-5 h-5 ml-1" />
+          </Button>
+        </div>
+      </div>
+      
       {showUpload && (
-        <p className="text-xs text-muted-foreground mt-2 text-center">
-          Accepted formats: PDF, DOC, DOCX, JPG, PNG
-        </p>
+        <div className="flex justify-center mt-3">
+            <p className="text-xs text-slate-400 font-medium px-4 py-1.5 bg-slate-900/50 rounded-full backdrop-blur-sm shadow-sm inline-block border border-white/5">
+                Secured Upload: PDF, DOC, DOCX, JPG, PNG
+            </p>
+        </div>
       )}
     </div>
   );

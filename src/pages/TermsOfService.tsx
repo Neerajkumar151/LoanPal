@@ -13,7 +13,7 @@ export default function TermsOfService() {
             
             {/* Page Title */}
             <div className="border-b border-border pb-8 mb-10">
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl font-extrabold font-display text-foreground tracking-tight mb-4">
                 Terms of Service
               </h1>
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
@@ -25,8 +25,8 @@ export default function TermsOfService() {
               
               {/* Section 1 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">1.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">1.0</span>
                   Acceptance of Terms
                 </h2>
                 <p className="mb-6">
@@ -35,8 +35,8 @@ export default function TermsOfService() {
                 <p className="mb-6">
                   If you do not agree to these Terms, you must immediately cease using our Platform and services. These Terms apply to all users including visitors, registered users, borrowers, and any person or entity accessing our Platform.
                 </p>
-                <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 p-4 rounded-r-lg">
-                  <p className="text-blue-900 dark:text-blue-100 text-base">
+                <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 dark:border-amber-400 p-4 rounded-r-lg">
+                  <p className="text-blue-900 dark:text-amber-100 text-base">
                     These Terms should be read in conjunction with our Privacy Policy, which explains how we collect, use, and protect your personal information. By accepting these Terms, you also consent to our data practices as described in the Privacy Policy.
                   </p>
                 </div>
@@ -44,8 +44,8 @@ export default function TermsOfService() {
 
               {/* Section 2 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">2.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">2.0</span>
                   Eligibility Criteria
                 </h2>
                 <p className="mb-6">To use our services, you must meet the following eligibility requirements:</p>
@@ -74,7 +74,7 @@ export default function TermsOfService() {
 
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">2.4 Additional Requirements</h3>
-                    <ul className="list-disc pl-5 space-y-2 marker:text-blue-500 dark:marker:text-blue-400">
+                    <ul className="list-disc pl-5 space-y-2 marker:text-amber-500 dark:marker:text-amber-400">
                       <li>You must have a valid mobile number and email address for verification</li>
                       <li>You must possess government-issued identification documents (Aadhaar, PAN, etc.)</li>
                       <li>You must have a bank account in your name with an Indian bank</li>
@@ -86,8 +86,8 @@ export default function TermsOfService() {
 
               {/* Section 3 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">3.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">3.0</span>
                   Account Registration and Responsibility
                 </h2>
                 <p className="mb-6">
@@ -120,8 +120,8 @@ export default function TermsOfService() {
 
               {/* Section 4 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">4.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">4.0</span>
                   AI-Based Credit Assessment Disclaimer
                 </h2>
                 <p className="mb-6">
@@ -154,8 +154,8 @@ export default function TermsOfService() {
 
               {/* Section 5 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">5.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">5.0</span>
                   Loan Application, Approval, and Rejection
                 </h2>
 
@@ -192,8 +192,8 @@ export default function TermsOfService() {
 
               {/* Section 6 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">6.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">6.0</span>
                   Interest Rates, Fees, and Repayment Obligations
                 </h2>
 
@@ -245,8 +245,8 @@ export default function TermsOfService() {
 
               {/* Section 7 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">7.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">7.0</span>
                   Prohibited Activities
                 </h2>
                 <p className="mb-4">You agree not to engage in any of the following prohibited activities:</p>
@@ -271,8 +271,8 @@ export default function TermsOfService() {
 
               {/* Section 8 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">8.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">8.0</span>
                   Limitation of Liability
                 </h2>
 
@@ -309,8 +309,8 @@ export default function TermsOfService() {
 
               {/* Section 9 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">9.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">9.0</span>
                   Account Suspension and Termination
                 </h2>
 
@@ -340,8 +340,8 @@ export default function TermsOfService() {
 
               {/* Section 10 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">10.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">10.0</span>
                   Governing Law and Jurisdiction
                 </h2>
                 <div className="space-y-4">
@@ -359,8 +359,8 @@ export default function TermsOfService() {
 
               {/* Section 11 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">11.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">11.0</span>
                   Amendments to Terms
                 </h2>
                 <div className="space-y-4">
@@ -378,8 +378,8 @@ export default function TermsOfService() {
 
               {/* Section 12 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">12.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold px-2.5 py-0.5 rounded mr-3">12.0</span>
                   Miscellaneous Provisions
                 </h2>
 
@@ -416,7 +416,7 @@ export default function TermsOfService() {
 
               {/* Section 13 - Contact */}
               <section className="mt-12 pt-8 border-t border-border">
-                <h2 className="text-2xl font-bold text-foreground mb-6">13. Contact Information</h2>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6">13. Contact Information</h2>
                 <p className="mb-6">
                   If you have questions, concerns, or need clarification regarding these Terms of Service, please contact us:
                 </p>

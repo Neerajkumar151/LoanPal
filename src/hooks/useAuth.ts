@@ -7,21 +7,45 @@ export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const ensureProfileExists = async (user: User) => {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', user.id)
+      .maybeSingle();
+
+    if (!data && !error) {
+      await supabase.from('profiles').insert({
+        id: user.id,
+        email: user.email!,
+        full_name: user.user_metadata?.full_name || null
+      });
+    }
+  };
+
   useEffect(() => {
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setSession(session);
-        setUser(session?.user ?? null);
+        const currentUser = session?.user ?? null;
+        setUser(currentUser);
         setLoading(false);
+        if (currentUser) {
+          ensureProfileExists(currentUser);
+        }
       }
     );
 
     // THEN check for existing session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
-      setUser(session?.user ?? null);
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
       setLoading(false);
+      if (currentUser) {
+        ensureProfileExists(currentUser);
+      }
     });
 
     return () => subscription.unsubscribe();

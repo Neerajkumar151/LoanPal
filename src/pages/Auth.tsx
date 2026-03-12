@@ -132,7 +132,7 @@ export default function Auth() {
         <meta name="description" content={isLogin ? 'Login to your AI Loan Assistant account' : 'Create your AI Loan Assistant account'} />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-background to-secondary/30">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-primary/5 via-background to-accent/5">
         {/* Header */}
         <header className="p-4 flex items-center justify-between">
           <Button 
@@ -141,19 +141,16 @@ export default function Auth() {
             className="gap-2"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Home
           </Button>
-          <ThemeToggle />
         </header>
 
         {/* Main Content */}
         <div className="flex-1 flex items-center justify-center p-4">
-          <Card className="w-full max-w-md shadow-xl border-border/50 backdrop-blur-sm">
+          <Card className="w-full max-w-md shadow-xl shadow-black/[0.06] border-border/60 backdrop-blur-sm">
             <CardHeader className="text-center space-y-2">
-              <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-3xl font-bold text-primary">L</span>
-              </div>
-              <CardTitle className="text-2xl font-bold">
+              <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-4 shadow-md shadow-primary/20">
+                <span className="text-3xl font-bold text-primary-foreground">L</span>              </div>
+              <CardTitle className="text-2xl font-bold font-display">
                 {isLogin ? 'Welcome Back' : 'Create Account'}
               </CardTitle>
               <CardDescription>
@@ -221,7 +218,7 @@ export default function Auth() {
 
               {/* Divider */}
               <div className="relative my-6">
-                <div className="border-t border-border"></div>
+                <div className="border-t border-border/60"></div>
                 <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-muted-foreground text-sm">
                   OR
                 </span>

@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
             
             {/* Page Title Header */}
             <div className="border-b border-border pb-8 mb-10">
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl font-extrabold font-display text-foreground tracking-tight mb-4">
                 Privacy Policy
               </h1>
               <div className="flex items-center text-sm font-medium text-muted-foreground uppercase tracking-wide">
@@ -26,16 +26,16 @@ export default function PrivacyPolicy() {
               
               {/* Section 1 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">1.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">1.0</span>
                   Introduction and Scope
                 </h2>
                 <div className="prose prose-lg text-muted-foreground max-w-none">
                   <p className="mb-6">
                     This Privacy Policy describes how we collect, use, store, share, and protect your personal information when you use our Platform to access loan services. The Platform operates as a technology service provider that connects users with registered lending institutions including banks and Non-Banking Financial Companies (NBFCs) licensed by the Reserve Bank of India.
                   </p>
-                  <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-500 p-5 rounded-r-lg">
-                    <p className="text-blue-900 dark:text-blue-100 text-base m-0">
+                  <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-600 dark:border-amber-500 p-5 rounded-r-lg">
+                    <p className="text-blue-900 dark:text-amber-100 text-base m-0">
                       By using our services, you consent to the collection and use of your information as described in this policy. We are committed to protecting your privacy and handling your data in accordance with the Information Technology Act, 2000, the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, and other applicable Indian laws.
                     </p>
                   </div>
@@ -44,19 +44,19 @@ export default function PrivacyPolicy() {
 
               {/* Section 2 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">2.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">2.0</span>
                   Types of Data Collected
                 </h2>
 
                 <div className="grid gap-8 md:grid-cols-2">
                   <div className="bg-muted/50 p-6 rounded-xl border border-border hover:shadow-md transition-shadow">
                     <h3 className="text-lg font-bold text-foreground mb-4 flex items-center">
-                      <svg className="w-5 h-5 mr-2 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                      <svg className="w-5 h-5 mr-2 text-amber-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                       2.1 Personal Information
                     </h3>
                     <p className="text-sm text-muted-foreground mb-3 uppercase tracking-wider font-semibold">We collect:</p>
-                    <ul className="space-y-2 text-base list-disc list-inside marker:text-blue-500 dark:marker:text-blue-400">
+                    <ul className="space-y-2 text-base list-disc list-inside marker:text-amber-500 dark:marker:text-amber-400">
                       <li>Full name, date of birth, gender, photograph</li>
                       <li>Contact details (mobile, email, address)</li>
                       <li>Government IDs (Aadhaar, PAN, etc.)</li>
@@ -81,10 +81,10 @@ export default function PrivacyPolicy() {
 
                   <div className="bg-muted/50 p-6 rounded-xl border border-border hover:shadow-md transition-shadow">
                     <h3 className="text-lg font-bold text-foreground mb-4 flex items-center">
-                      <svg className="w-5 h-5 mr-2 text-purple-500 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                      <svg className="w-5 h-5 mr-2 text-amber-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                       2.3 Device & Technical Info
                     </h3>
-                    <ul className="space-y-2 text-base list-disc list-inside marker:text-purple-500 dark:marker:text-purple-400">
+                    <ul className="space-y-2 text-base list-disc list-inside marker:text-amber-500 dark:marker:text-amber-400">
                       <li>Device IDs, IP, browser, OS</li>
                       <li>Mobile model & unique ID</li>
                       <li>Location data (with consent)</li>
@@ -108,13 +108,13 @@ export default function PrivacyPolicy() {
 
               {/* Section 3 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">3.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">3.0</span>
                   Purpose of Data Collection
                 </h2>
                 <p className="mb-4 text-foreground font-medium">We collect and use your information for the following purposes:</p>
                 <div className="bg-muted/50 rounded-xl p-6 border border-border">
-                  <ul className="grid gap-3 sm:grid-cols-1 md:grid-cols-2 list-disc pl-5 marker:text-blue-500 dark:marker:text-blue-400 text-base">
+                  <ul className="grid gap-3 sm:grid-cols-1 md:grid-cols-2 list-disc pl-5 marker:text-amber-500 dark:marker:text-amber-400 text-base">
                     <li>To verify your identity and prevent fraud</li>
                     <li>To assess creditworthiness & process loans</li>
                     <li>To facilitate communication with lenders</li>
@@ -129,8 +129,8 @@ export default function PrivacyPolicy() {
 
               {/* Section 4 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">4.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">4.0</span>
                   AI and Automated Decision-Making
                 </h2>
                 <div className="prose prose-lg text-muted-foreground max-w-none space-y-4">
@@ -150,8 +150,8 @@ export default function PrivacyPolicy() {
 
               {/* Section 5 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">5.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">5.0</span>
                   Data Storage and Security
                 </h2>
                 <p className="mb-6">
@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
                 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                   <div className="flex items-start p-4 bg-background dark:bg-muted/20 border border-border rounded-lg shadow-sm">
-                    <div className="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-full mr-4 text-blue-600 dark:text-blue-400 shrink-0">
+                    <div className="bg-amber-100 dark:bg-amber-900/30 p-2 rounded-full mr-4 text-amber-600 dark:text-amber-400 shrink-0">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                     </div>
                     <div>
@@ -180,7 +180,7 @@ export default function PrivacyPolicy() {
                   </div>
 
                   <div className="flex items-start p-4 bg-background dark:bg-muted/20 border border-border rounded-lg shadow-sm">
-                     <div className="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-full mr-4 text-purple-600 dark:text-purple-400 shrink-0">
+                     <div className="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-full mr-4 text-purple-600 dark:text-amber-400 shrink-0">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     </div>
                     <div>
@@ -207,8 +207,8 @@ export default function PrivacyPolicy() {
 
               {/* Section 6 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">6.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">6.0</span>
                   Data Sharing and Disclosure
                 </h2>
                 <div className="grid gap-6 md:grid-cols-2">
@@ -233,36 +233,36 @@ export default function PrivacyPolicy() {
 
               {/* Section 7 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">7.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">7.0</span>
                   User Rights
                 </h2>
                 <p className="mb-4 font-medium text-foreground">You have the following rights regarding your personal information:</p>
                 <div className="bg-card border border-border rounded-xl shadow-sm overflow-hidden">
                   <ul className="divide-y divide-border">
                     <li className="p-4 hover:bg-muted transition-colors flex items-start">
-                      <span className="text-blue-500 dark:text-blue-400 mr-3 mt-1">✓</span>
+                      <span className="text-amber-500 dark:text-amber-400 mr-3 mt-1">✓</span>
                       <div>
                          <strong className="block text-foreground">Right to Access</strong>
                          <span className="text-sm text-muted-foreground">Request a copy of your personal data.</span>
                       </div>
                     </li>
                      <li className="p-4 hover:bg-muted transition-colors flex items-start">
-                      <span className="text-blue-500 dark:text-blue-400 mr-3 mt-1">✓</span>
+                      <span className="text-amber-500 dark:text-amber-400 mr-3 mt-1">✓</span>
                       <div>
                          <strong className="block text-foreground">Right to Correction</strong>
                          <span className="text-sm text-muted-foreground">Update inaccurate information via settings or support.</span>
                       </div>
                     </li>
                      <li className="p-4 hover:bg-muted transition-colors flex items-start">
-                      <span className="text-blue-500 dark:text-blue-400 mr-3 mt-1">✓</span>
+                      <span className="text-amber-500 dark:text-amber-400 mr-3 mt-1">✓</span>
                       <div>
                          <strong className="block text-foreground">Right to Deletion</strong>
                          <span className="text-sm text-muted-foreground">Request data deletion (subject to retention laws).</span>
                       </div>
                     </li>
                      <li className="p-4 hover:bg-muted transition-colors flex items-start">
-                      <span className="text-blue-500 dark:text-blue-400 mr-3 mt-1">✓</span>
+                      <span className="text-amber-500 dark:text-amber-400 mr-3 mt-1">✓</span>
                       <div>
                          <strong className="block text-foreground">Right to Withdraw Consent</strong>
                          <span className="text-sm text-muted-foreground">Stop data processing at any time (may affect service).</span>
@@ -277,8 +277,8 @@ export default function PrivacyPolicy() {
 
               {/* Section 8 */}
               <section>
-                 <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">8.0</span>
+                 <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">8.0</span>
                   Cookies and Tracking Technologies
                 </h2>
                 <p className="mb-4">
@@ -297,12 +297,12 @@ export default function PrivacyPolicy() {
 
               {/* Section 9 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">9.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">9.0</span>
                   Data Retention Policy
                 </h2>
                 <p className="mb-4">We retain data as long as necessary or required by law.</p>
-                <ul className="list-disc pl-5 space-y-2 marker:text-blue-500 dark:marker:text-blue-400">
+                <ul className="list-disc pl-5 space-y-2 marker:text-amber-500 dark:marker:text-amber-400">
                   <li><strong>Active User Data:</strong> Duration of account + regulatory periods.</li>
                   <li><strong>Financial Records:</strong> Minimum 10 years (RBI guidelines).</li>
                   <li><strong>KYC Documents:</strong> At least 5 years after closure.</li>
@@ -312,8 +312,8 @@ export default function PrivacyPolicy() {
 
               {/* Section 10 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">10.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">10.0</span>
                   Grievance Redressal
                 </h2>
                  <p className="mb-6">
@@ -328,7 +328,7 @@ export default function PrivacyPolicy() {
                       </div>
                        <div>
                         <p className="text-muted-foreground text-sm">Email</p>
-                        <p className="font-medium text-blue-600 dark:text-blue-400">thakurneerajkumar017@gmail.com</p>
+                        <p className="font-medium text-amber-600 dark:text-amber-400">thakurneerajkumar017@gmail.com</p>
                       </div>
                        <div>
                         <p className="text-muted-foreground text-sm">Phone</p>
@@ -347,8 +347,8 @@ export default function PrivacyPolicy() {
 
               {/* Section 11 */}
               <section>
-                 <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">11.0</span>
+                 <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">11.0</span>
                   Updates to This Policy
                 </h2>
                 <div className="prose text-muted-foreground">
@@ -360,18 +360,18 @@ export default function PrivacyPolicy() {
 
               {/* Contact Section */}
               <section className="mt-12 pt-8 border-t border-border">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6">Contact Information</h2>
                 <p className="mb-6">
                   If you have questions regarding this Privacy Policy, please contact us at:
                 </p>
                 <div className="grid gap-4 md:grid-cols-3">
                   <div className="bg-card p-6 rounded-xl border border-border text-center shadow-sm hover:shadow-md transition-shadow">
                     <h4 className="font-bold text-foreground mb-2">Privacy Inquiries</h4>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium">thakurneerajkumar017@gmail.com</p>
+                    <p className="text-amber-600 dark:text-amber-400 font-medium">thakurneerajkumar017@gmail.com</p>
                   </div>
                   <div className="bg-card p-6 rounded-xl border border-border text-center shadow-sm hover:shadow-md transition-shadow">
                     <h4 className="font-bold text-foreground mb-2">Customer Support</h4>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium">thakurneerajkumar017@gmail.com</p>
+                    <p className="text-amber-600 dark:text-amber-400 font-medium">thakurneerajkumar017@gmail.com</p>
                   </div>
                   <div className="bg-card p-6 rounded-xl border border-border text-center shadow-sm hover:shadow-md transition-shadow">
                     <h4 className="font-bold text-foreground mb-2">Registered Office</h4>

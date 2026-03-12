@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { UserMenu } from '@/components/UserMenu';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, Calculator, IndianRupee, Percent, Calendar, TrendingUp, PiggyBank } from 'lucide-react';
+import { PieChart, Pie, Cell, Tooltip as RechartsTooltip, Legend, ResponsiveContainer } from 'recharts';
 import Footer from '@/components/landing/Footer';
 import { Bot } from 'lucide-react';
 import FloatingChatbot from '@/components/FloatingChatbot';
@@ -61,19 +61,18 @@ export default function EMICalculator() {
 
       <div className="min-h-screen bg-background">
         {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/40">
           <div className="container mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <Bot className="w-6 h-6 text-primary-foreground" />
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-md shadow-accent/20">
+            <Bot className="w-6 h-6 text-accent-foreground" />
           </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <span className="text-2xl font-bold gradient-text">
             LoanPal
           </span>
         </div>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <UserMenu />
             </div>
           </div>
@@ -209,66 +208,82 @@ export default function EMICalculator() {
               </Card>
 
               {/* Results Card */}
-              <div className="space-y-6">
+              <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-700">
                 {/* EMI Display */}
-                <Card className="bg-primary text-primary-foreground">
-                  <CardContent className="pt-6">
+                <Card className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-accent/20 text-white shadow-2xl relative overflow-hidden group">
+                  {/* Decorative background circle */}
+                  <div className="absolute -right-10 -top-10 h-40 w-40 bg-accent/20 rounded-full blur-2xl group-hover:bg-accent/30 transition-all duration-700"></div>
+                  
+                  <CardContent className="pt-8 pb-8 relative z-10">
                     <div className="text-center">
-                      <p className="text-primary-foreground/80 text-sm mb-2">Monthly EMI</p>
-                      <p className="text-4xl font-bold">{formatAmount(calculations.emi)}</p>
+                      <p className="text-slate-300 font-medium tracking-wide uppercase text-sm mb-3">Your Monthly EMI</p>
+                      <p className="text-6xl font-display font-bold text-white tracking-tight"><span className="text-accent pr-1">₹</span>{calculations.emi.toLocaleString()}</p>
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Breakdown */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Payment Breakdown</CardTitle>
+                <Card className="shadow-lg border-t-4 border-t-accent bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+                  <CardHeader className="pb-2 border-b border-border/50 bg-muted/10">
+                    <CardTitle className="text-xl font-display">Payment Breakdown</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex items-center justify-between py-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-primary" />
-                        <span className="text-muted-foreground">Principal Amount</span>
+                  <CardContent className="space-y-6 pt-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col">
+                        <span className="flex items-center gap-2 text-sm font-medium text-muted-foreground"><div className="w-3 h-3 rounded-full bg-accent shadow-glow" /> Principal Amount</span>
+                        <span className="font-bold text-lg mt-1 text-foreground pl-5">{formatAmount(loanAmount)}</span>
                       </div>
-                      <span className="font-semibold">{formatAmount(loanAmount)}</span>
+                      
+                      <div className="flex flex-col text-right">
+                        <span className="flex items-center justify-end gap-2 text-sm font-medium text-muted-foreground">Total Interest <div className="w-3 h-3 rounded-full bg-destructive shadow-sm" /></span>
+                        <span className="font-bold text-lg mt-1 text-foreground pr-5">{formatAmount(calculations.totalInterest)}</span>
+                      </div>
                     </div>
                     
-                    <div className="flex items-center justify-between py-2">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-destructive" />
-                        <span className="text-muted-foreground">Total Interest</span>
-                      </div>
-                      <span className="font-semibold">{formatAmount(calculations.totalInterest)}</span>
-                    </div>
-
                     <Separator />
-
-                    <div className="flex items-center justify-between py-2">
-                      <span className="font-semibold">Total Payment</span>
-                      <span className="font-bold text-lg">{formatAmount(calculations.totalPayment)}</span>
+                    
+                    <div className="flex items-center justify-between bg-muted/30 p-4 rounded-xl border border-border/50">
+                      <span className="font-semibold text-muted-foreground uppercase tracking-wider text-sm">Total Payment</span>
+                      <span className="font-bold font-display text-2xl text-foreground">{formatAmount(calculations.totalPayment)}</span>
                     </div>
 
-                    {/* Visual Breakdown Bar */}
-                    <div className="h-4 rounded-full overflow-hidden bg-muted flex">
-                      <div 
-                        className="bg-primary transition-all duration-300" 
-                        style={{ width: `${calculations.principalPercentage}%` }}
-                      />
-                      <div 
-                        className="bg-destructive transition-all duration-300" 
-                        style={{ width: `${calculations.interestPercentage}%` }}
-                      />
-                    </div>
-                    <div className="flex justify-between text-xs text-muted-foreground">
-                      <span>Principal ({calculations.principalPercentage}%)</span>
-                      <span>Interest ({calculations.interestPercentage}%)</span>
+                    {/* Interactive Pie Chart Breakdown instead of static bar */}
+                    <div className="h-[220px] w-full mt-4">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                                <Pie
+                                    data={[
+                                        { name: 'Principal', value: Number(calculations.principalPercentage), color: '#eab308' },
+                                        { name: 'Interest', value: Number(calculations.interestPercentage), color: '#ef4444' }
+                                    ]}
+                                    cx="50%"
+                                    cy="50%"
+                                    innerRadius={50}
+                                    outerRadius={80}
+                                    paddingAngle={2}
+                                    dataKey="value"
+                                    stroke="none"
+                                >
+                                    { [
+                                        { name: 'Principal', value: Number(calculations.principalPercentage), color: '#eab308' },
+                                        { name: 'Interest', value: Number(calculations.interestPercentage), color: '#ef4444' }
+                                    ].map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                    ))}
+                                </Pie>
+                                <RechartsTooltip 
+                                    contentStyle={{ backgroundColor: 'rgba(15, 23, 42, 0.9)', borderRadius: '8px', border: 'none', color: '#fff' }}
+                                    formatter={(value: number) => [`${value.toFixed(1)}%`, 'Share']}
+                                />
+                                <Legend verticalAlign="bottom" height={36} iconType="circle" />
+                            </PieChart>
+                        </ResponsiveContainer>
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Tips */}
-                <Card className="bg-accent/50">
+                <Card className="bg-accent/10 border-accent/20">
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-3">
                       <PiggyBank className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />

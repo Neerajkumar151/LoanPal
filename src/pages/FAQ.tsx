@@ -154,7 +154,7 @@ export default function FAQ() {
                <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-slate-800 dark:bg-slate-900 rounded-full opacity-50 blur-2xl"></div>
                <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-blue-900/50 rounded-full opacity-50 blur-2xl"></div>
 
-               <h3 className="text-2xl font-bold text-white mb-3 relative z-10">Can't find what you're looking for?</h3>
+               <h3 className="text-2xl font-bold font-display text-white mb-3 relative z-10">Can't find what you're looking for?</h3>
                <p className="text-slate-400 mb-8 relative z-10 max-w-lg mx-auto">
                  Our friendly support team is here to help you with any specific questions or technical issues.
                </p>

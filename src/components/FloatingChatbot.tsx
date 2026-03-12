@@ -13,7 +13,18 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
-// Removed duplicate/unused imports
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { toast } from "sonner";
 
 interface Message {
   id?: string;
@@ -79,7 +90,7 @@ const formatInlineText = (text: string) => {
   return parts.map((part, idx) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return (
-        <strong key={idx} className="font-bold text-primary">
+        <strong key={idx} className="font-bold text-accent">
           {part.slice(2, -2)}
         </strong>
       );
@@ -263,92 +274,115 @@ export default function FloatingChatbot() {
   const clearChatHistory = async () => {
     if (!user) return;
     
-    if (confirm("Are you sure you want to delete your entire chat history?")) {
-      setIsLoading(true); 
-      
-      try {
-        const { error } = await supabase
-          .from('floating_chat_messages')
-          .delete()
-          .eq('user_id', user.id);
+    setIsLoading(true); 
+    
+    try {
+      const { error } = await (supabase
+        .from('floating_chat_messages' as any)
+        .delete()
+        .eq('user_id', user.id)) as any;
 
-        if (error) {
-          throw error;
-        }
-
-        setMessages([{
-           role: 'assistant',
-           content: `Chat history cleared! How can I help you now?`
-        }]);
-        
-        setHasLoadedHistory(true); 
-        
-      } catch (err) {
-        console.error("Failed to delete chat history:", err);
-        alert("Could not delete history. Please check your connection.");
-        setHasLoadedHistory(false); 
-      } finally {
-        setIsLoading(false);
+      if (error) {
+        throw error;
       }
+
+      setMessages([{
+         role: 'assistant',
+         content: `Chat history cleared! How can I help you now?`
+      }]);
+      
+      setHasLoadedHistory(true); 
+      toast.success("Chat history cleared successfully");
+      
+    } catch (err) {
+      console.error("Failed to delete chat history:", err);
+      toast.error("Could not delete history. Please check your connection.");
+      setHasLoadedHistory(false); 
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <>
+    <div className="dark">
       {/* Toggle Button */}
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="fixed bottom-8 right-8 flex items-center justify-center gap-3 rounded-full shadow-lg bg-primary transition-all duration-300 hover:scale-110 z-50 px-6 py-7"
+          className="fixed bottom-8 right-8 flex items-center justify-center gap-3 rounded-[1.5rem] shadow-lg shadow-black/50 bg-slate-900 border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/20 z-50 px-4 py-7 group"
         >
-          {/* Changed fixed inline style to Tailwind classes */}
-          <Bot className="text-white" style={{ width: '30px', height: '30px' }} />
-                    <span className="text-white font-semibold text-2xl">AI</span>
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-yellow-600 flex items-center justify-center shadow-md shadow-accent/20 group-hover:scale-110 transition-transform">
+             <Bot className="text-slate-900 w-5 h-5" />
+          </div>
+          <span className="text-white font-bold text-lg font-display pr-2">Chat</span>
         </Button>
       )}
 
       {/* Chat Window */}
       <div
         className={cn(
-          "fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl border border-border bg-card shadow-2xl transition-all duration-300 origin-bottom-right",
+          "fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] flex flex-col rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-black/80 transition-all duration-300 origin-bottom-right overflow-hidden",
           isOpen 
             ? "opacity-100 scale-100 translate-y-0" 
             : "opacity-0 scale-95 translate-y-10 pointer-events-none"
         )}
         style={{ height: '600px' }}
       >
-        {/* Header - Stays Primary Color */}
-        <div className="flex items-center gap-3 rounded-t-2xl bg-primary px-4 py-4 text-primary-foreground shadow-md">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-            <Bot className="h-6 w-6 text-primary-foreground" />
+        {/* Header */}
+        <div className="flex items-center gap-4 bg-slate-900/90 backdrop-blur-xl border-b border-white/10 px-5 py-5 text-white shadow-md relative overflow-hidden">
+           <div className="absolute top-[-50%] right-[-10%] w-[60%] h-[150%] bg-accent/5 rounded-full blur-[40px] pointer-events-none"></div>
+
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-yellow-600 shadow-md shadow-accent/20">
+            <Bot className="h-6 w-6 text-slate-900" />
           </div>
-          <div className="flex-1">
-            <h3 className="font-bold leading-none">LoanPal Assistant</h3>
+          <div className="flex-1 z-10">
+            <h3 className="font-bold text-lg font-display tracking-wide">LoanPal Assistant</h3>
             <div className="mt-1 flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-              <p className="text-[10px] uppercase tracking-wider opacity-90 font-medium">Online</p>
+              <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.5)]" />
+              <p className="text-[10px] uppercase tracking-wider opacity-90 font-medium text-slate-300">Online</p>
             </div>
           </div>
           
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 z-10">
             {/* Delete History Button */}
             {user && (
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-8 w-8 text-primary-foreground/70 hover:text-primary-foreground hover:bg-white/10" 
-                onClick={clearChatHistory} 
-                title="Clear History"
-              >
-                <Trash2 className="h-4 w-4" />
-              </Button>
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="h-8 w-8 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors" 
+                    disabled={isLoading}
+                    title="Clear History"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent className="bg-slate-900 border-white/10 text-white rounded-[2rem]">
+                  <AlertDialogHeader>
+                    <AlertDialogTitle className="font-display">Clear Chat History?</AlertDialogTitle>
+                    <AlertDialogDescription className="text-slate-400">
+                      This action cannot be undone. This will permanently delete your entire conversation history with LoanPal Assistant.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel className="bg-white/5 border-white/10 text-white hover:bg-white/10 rounded-xl">Cancel</AlertDialogCancel>
+                    <AlertDialogAction 
+                      onClick={clearChatHistory}
+                      className="bg-accent text-slate-900 hover:bg-yellow-500 rounded-xl font-bold"
+                    >
+                      Delete History
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             )}
 
             {/* Cancel (Close) Button */}
             <Button 
               variant="ghost" 
               size="icon" 
-              className="h-8 w-8 text-primary-foreground/70 hover:text-primary-foreground hover:bg-white/10" 
+              className="h-8 w-8 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors" 
               onClick={() => setIsOpen(false)}
             >
               <X className="h-5 w-5" />
@@ -357,9 +391,8 @@ export default function FloatingChatbot() {
         </div>
 
         {/* Messages */}
-        {/* Changed bg-slate-50 to bg-muted/20 to work in dark mode */}
-        <ScrollArea className="flex-1 p-4 bg-muted/20">
-          <div className="flex flex-col gap-4">
+        <ScrollArea className="flex-1 p-4 bg-slate-950/50">
+          <div className="flex flex-col gap-6 pt-2">
             {messages.map((msg, idx) => (
               <div
                 key={msg.id || idx}
@@ -369,19 +402,17 @@ export default function FloatingChatbot() {
                 )}
               >
                 <div className={cn(
-                  "flex h-8 w-8 shrink-0 items-center justify-center rounded-full shadow-sm",
-                  // Replaced bg-white with bg-card
-                  msg.role === 'user' ? "bg-primary text-primary-foreground" : "bg-card border border-border"
+                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl shadow-sm",
+                  msg.role === 'user' ? "bg-gradient-to-br from-accent to-yellow-600 text-slate-900" : "bg-slate-800 border border-white/10 text-slate-300"
                 )}>
                   {msg.role === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
                 </div>
                 <div
                   className={cn(
-                    "max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm",
+                    "max-w-[80%] rounded-[1.25rem] px-5 py-3 text-[14px] leading-relaxed shadow-sm font-light",
                     msg.role === 'user'
-                      ? "bg-primary text-primary-foreground rounded-tr-none"
-                      // Replaced bg-white with bg-card and text-foreground
-                      : "bg-card text-card-foreground border border-border rounded-tl-none"
+                      ? "bg-accent text-slate-900 rounded-tr-sm shadow-accent/5 font-medium"
+                      : "bg-slate-900 text-slate-200 border border-white/5 rounded-tl-sm shadow-[0_4px_15px_-5px_rgba(0,0,0,0.2)]"
                   )}
                 >
                   {msg.role === 'assistant' ? formatMessageContent(msg.content) : msg.content}
@@ -390,14 +421,14 @@ export default function FloatingChatbot() {
             ))}
             
             {isLoading && (
-              <div className="flex gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-card border border-border">
-                  <Bot className="h-4 w-4" />
+              <div className="flex gap-3 animate-in fade-in slide-in-from-bottom-2">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-800 border border-white/10">
+                  <Bot className="h-4 w-4 text-slate-300" />
                 </div>
-                <div className="flex items-center gap-1 rounded-2xl rounded-tl-none bg-card border border-border px-4 py-3">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary/40 [animation-delay:-0.3s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary/40 [animation-delay:-0.15s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-primary/40" />
+                <div className="flex items-center gap-1.5 rounded-[1.25rem] rounded-tl-sm bg-slate-900 border border-white/5 px-5 py-4">
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-accent/60 [animation-delay:-0.3s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-accent/60 [animation-delay:-0.15s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-accent/60" />
                 </div>
               </div>
             )}
@@ -406,28 +437,34 @@ export default function FloatingChatbot() {
         </ScrollArea>
 
         {/* Input Area */}
-        <div className="p-4 bg-background border-t border-border rounded-b-2xl">
-          <div className="flex items-center gap-2 bg-muted p-1 rounded-full border border-border focus-within:border-primary/50 transition-colors">
+        <div className="p-4 bg-slate-950 border-t border-white/5">
+          <div className="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-[1.5rem] border border-white/10 focus-within:border-accent/40 focus-within:ring-1 focus-within:ring-accent/20 transition-all duration-300 shadow-inner">
             <Input
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Message..."
+              placeholder="Ask me anything..."
               disabled={isLoading}
-              className="flex-1 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 h-9"
+              className="flex-1 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 h-10 text-slate-200 placeholder:text-slate-500 px-3"
             />
             <Button
               onClick={sendMessage}
               disabled={!input.trim() || isLoading}
               size="icon"
-              className="h-8 w-8 shrink-0 rounded-full shadow-md"
+              className={cn(
+                 "h-10 w-10 shrink-0 rounded-[1rem] transition-all",
+                 input.trim() ? "bg-accent hover:bg-yellow-500 text-slate-900 shadow-md shadow-accent/20" : "bg-slate-800 text-slate-500 hover:bg-slate-700"
+              )}
             >
-              {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+              {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="h-4 w-4 ml-0.5" />}
             </Button>
           </div>
+           <div className="flex justify-center mt-3">
+              <p className="text-[9px] text-slate-500 font-medium tracking-[0.15em] uppercase opacity-70">Secured with AES-256 Encryption</p>
+           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

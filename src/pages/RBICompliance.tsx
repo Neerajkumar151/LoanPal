@@ -13,7 +13,7 @@ export default function RBICompliance() {
             
             {/* Header Section */}
             <div className="border-b border-border pb-8 mb-10">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-foreground tracking-tight mb-6 leading-tight">
                 RBI Compliance & Regulatory Disclosure
               </h1>
               <div className="flex flex-wrap items-center text-sm font-medium text-muted-foreground gap-4">
@@ -29,16 +29,16 @@ export default function RBICompliance() {
             <div className="space-y-12 text-muted-foreground leading-relaxed text-lg">
               
               {/* Important Notice */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 p-6 rounded-r-lg shadow-sm">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-600 p-6 rounded-r-lg shadow-sm">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <svg className="h-6 w-6 text-blue-600 dark:text-blue-400 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-6 w-6 text-amber-600 dark:text-amber-400 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-bold text-blue-900 dark:text-blue-300 mb-2">Important Notice</h3>
-                    <p className="text-blue-800 dark:text-blue-200 text-base">
+                    <h3 className="text-lg font-bold text-blue-900 dark:text-amber-300 mb-2">Important Notice</h3>
+                    <p className="text-amber-800 dark:text-amber-200 text-base">
                       This disclosure is provided in compliance with the Reserve Bank of India's Digital Lending Guidelines dated September 2, 2022, and subsequent circulars. All users are advised to read this document carefully before using our Platform.
                     </p>
                   </div>
@@ -47,8 +47,8 @@ export default function RBICompliance() {
 
               {/* Section 1 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">1.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">1.0</span>
                   Statement of Compliance with RBI Digital Lending Guidelines
                 </h2>
                 <div className="prose prose-lg text-muted-foreground max-w-none">
@@ -58,7 +58,7 @@ export default function RBICompliance() {
                   <p className="mb-4 font-medium text-foreground">
                     We strictly follow the regulatory framework governing digital lending platforms, including:
                   </p>
-                  <ul className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 list-disc pl-5 marker:text-blue-500 text-base bg-muted/50 p-6 rounded-xl border border-border">
+                  <ul className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 list-disc pl-5 marker:text-amber-500 text-base bg-muted/50 p-6 rounded-xl border border-border">
                     <li>RBI Guidelines on Digital Lending (Sept 2, 2022)</li>
                     <li>Fair Practices Code for Lenders</li>
                     <li>Master Direction on KYC norms</li>
@@ -74,21 +74,21 @@ export default function RBICompliance() {
 
               {/* Section 2 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">2.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">2.0</span>
                   Role of the Platform
                 </h2>
                 
                 <div className="space-y-8">
                   <div className="bg-card border border-border rounded-xl p-6 hover:shadow-md transition-shadow">
                     <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                      <svg className="w-5 h-5 mr-2 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                       2.1 Technology Service Provider
                     </h3>
                     <p className="mb-4 text-base">
                       This Platform functions exclusively as a technology service provider and lending facilitator. We provide a digital marketplace that connects prospective borrowers with registered lending institutions. Our role is limited to:
                     </p>
-                    <ul className="space-y-2 text-base list-disc list-inside marker:text-blue-400 text-muted-foreground pl-2">
+                    <ul className="space-y-2 text-base list-disc list-inside marker:text-amber-400 text-muted-foreground pl-2">
                       <li>Technology platform for loan applications</li>
                       <li>User authentication, verification & KYC</li>
                       <li>Data transmission to lending partners</li>
@@ -126,8 +126,8 @@ export default function RBICompliance() {
 
               {/* Section 3 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">3.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">3.0</span>
                   Disclosure of Lending Partners
                 </h2>
                 
@@ -145,10 +145,10 @@ export default function RBICompliance() {
                       Before you accept a loan offer, you will be provided with complete information about the lending institution, including:
                     </p>
                     <ul className="space-y-2 text-base text-muted-foreground">
-                      <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Name and registered address</li>
-                      <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>RBI registration number/license details</li>
-                      <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Customer service & grievance contacts</li>
-                      <li className="flex items-center"><span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Official website & communication channels</li>
+                      <li className="flex items-center"><span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>Name and registered address</li>
+                      <li className="flex items-center"><span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>RBI registration number/license details</li>
+                      <li className="flex items-center"><span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>Customer service & grievance contacts</li>
+                      <li className="flex items-center"><span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>Official website & communication channels</li>
                     </ul>
                   </div>
 
@@ -163,8 +163,8 @@ export default function RBICompliance() {
 
               {/* Section 4 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">4.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">4.0</span>
                   No Unauthorized Lending or Deposit Acceptance
                 </h2>
 
@@ -206,15 +206,15 @@ export default function RBICompliance() {
 
               {/* Section 5 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">5.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">5.0</span>
                   Transparent Disclosure of Interest Rates & Charges
                 </h2>
 
                 <div className="space-y-8">
                   <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
                     <div className="flex items-center mb-4">
-                      <div className="bg-indigo-100 dark:bg-indigo-900/30 p-2 rounded-lg text-indigo-600 dark:text-indigo-400 mr-3">
+                      <div className="bg-amber-100 dark:bg-amber-900/30 p-2 rounded-lg text-amber-600 dark:text-amber-400 mr-3">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                       </div>
                       <h3 className="text-xl font-bold text-foreground">5.1 Key Fact Statement (KFS)</h3>
@@ -249,8 +249,8 @@ export default function RBICompliance() {
 
               {/* Section 6 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">6.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">6.0</span>
                   Data Localization and Consent Practices
                 </h2>
                 
@@ -295,8 +295,8 @@ export default function RBICompliance() {
 
               {/* Section 7 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">7.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">7.0</span>
                   Fair Practices Code Adherence
                 </h2>
                 
@@ -336,15 +336,15 @@ export default function RBICompliance() {
 
               {/* Section 8 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">8.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">8.0</span>
                   Grievance Redressal Mechanism
                 </h2>
 
                 <div className="grid gap-6 md:grid-cols-3 mb-8">
                   {/* Tier 1 */}
                   <div className="bg-card border border-border p-5 rounded-xl shadow-sm text-center">
-                    <div className="bg-blue-100 dark:bg-blue-900/30 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-blue-600 dark:text-blue-400 font-bold">1</div>
+                    <div className="bg-amber-100 dark:bg-amber-900/30 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-amber-600 dark:text-amber-400 font-bold">1</div>
                     <h3 className="font-bold text-foreground mb-2">Customer Support</h3>
                     <div className="text-sm text-muted-foreground space-y-1">
                       <p>thakurneerajkumar017@gmail.com</p>
@@ -355,8 +355,8 @@ export default function RBICompliance() {
 
                   {/* Tier 2 */}
                   <div className="bg-card border border-border p-5 rounded-xl shadow-sm text-center relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
-                    <div className="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">2</div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-amber-500"></div>
+                    <div className="bg-amber-600 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">2</div>
                     <h3 className="font-bold text-foreground mb-2">Grievance Officer</h3>
                     <div className="text-sm text-muted-foreground space-y-1">
                       <p>Neeraj Kumar</p>
@@ -402,17 +402,17 @@ export default function RBICompliance() {
 
               {/* Section 9 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">9.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">9.0</span>
                   RBI Consumer Awareness
                 </h2>
 
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-100 dark:border-blue-800 p-6 rounded-xl mb-8">
-                  <h3 className="text-lg font-bold text-blue-900 dark:text-blue-300 mb-3 flex items-center">
+                <div className="bg-gradient-to-br from-amber-50 to-indigo-50 dark:from-amber-900/20 dark:to-amber-900/20 border border-amber-100 dark:border-amber-800 p-6 rounded-xl mb-8">
+                  <h3 className="text-lg font-bold text-blue-900 dark:text-amber-300 mb-3 flex items-center">
                     <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Consumer Advisory from RBI
                   </h3>
-                  <ul className="list-disc pl-6 space-y-2 text-blue-800 dark:text-blue-200 font-medium">
+                  <ul className="list-disc pl-6 space-y-2 text-amber-800 dark:text-amber-200 font-medium">
                      <li>Borrow only from RBI-registered banks and NBFCs</li>
                      <li>Check credentials before accepting loans</li>
                      <li>Read all terms, interest rates, and fees carefully</li>
@@ -449,8 +449,8 @@ export default function RBICompliance() {
 
               {/* Section 10 */}
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center group">
-                  <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">10.0</span>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6 flex items-center group">
+                  <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors text-sm font-bold px-3 py-1 rounded mr-4">10.0</span>
                   Regulatory Monitoring
                 </h2>
                 <div className="grid sm:grid-cols-3 gap-4">
@@ -471,7 +471,7 @@ export default function RBICompliance() {
 
               {/* Contact Information */}
               <section className="mt-12 pt-8 border-t border-border">
-                <h2 className="text-2xl font-bold text-foreground mb-6">11. Contact for Regulatory Matters</h2>
+                <h2 className="text-2xl font-bold font-display text-foreground mb-6">11. Contact for Regulatory Matters</h2>
                 <div className="bg-muted/50 border border-border rounded-2xl p-8 shadow-sm">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>

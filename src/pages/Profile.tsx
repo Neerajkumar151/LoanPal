@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { UserMenu } from '@/components/UserMenu';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -302,7 +301,6 @@ export default function Profile() {
             </button>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <UserMenu />
             </div>
           </div>
