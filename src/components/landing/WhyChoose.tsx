@@ -4,100 +4,94 @@ const reasons = [
   {
     icon: Clock,
     title: 'Velocity redefined',
-    description: 'Capital decisions executed in milliseconds. Eradicate waiting periods, queues, and traditional banking latency.',
+    description: 'Capital decisions in milliseconds. Eradicate waiting periods and traditional banking latency.',
     stat: '10x',
-    statLabel: 'Faster processing',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80',
+    statLabel: 'Faster',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=60&w=800&fm=webp',
   },
   {
     icon: FileX,
     title: 'Frictionless logic',
-    description: 'A pure digital ecosystem. Physical documentation is obsolete; our API does the heavy lifting instantly.',
+    description: 'A pure digital ecosystem. Physical documentation is obsolete; our API does the heavy lifting.',
     stat: '100%',
-    statLabel: 'Digital workflow',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
+    statLabel: 'Digital',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=60&w=800&fm=webp',
   },
   {
     icon: AlertCircle,
     title: 'Absolute clarity',
-    description: 'Black-box algorithms are a thing of the past. If denied, you receive exact parametric feedback for improvement.',
+    description: 'No black boxes. If denied, you receive exact parametric feedback for improvement.',
     stat: '100%',
-    statLabel: 'Transparency',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+    statLabel: 'Transparent',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=60&w=800&fm=webp',
   },
   {
     icon: MessagesSquare,
     title: 'Humanized AI',
-    description: 'A sophisticated NLP interface that understands intent. Eliminate complex forms in favor of natural conversation.',
+    description: 'Sophisticated NLP that understands intent. Natural conversation replaces complex forms.',
     stat: '4.9/5',
-    statLabel: 'Trust rating',
-    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80',
+    statLabel: 'Rating',
+    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=60&w=800&fm=webp',
   },
 ];
 
 export default function WhyChoose() {
   return (
-    <section className="py-24 bg-slate-900 border-t border-white/5 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <section className="py-32 bg-[hsl(220,25%,7%)] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
         <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">The Paradigm Shift</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-display tracking-tight">
-            Why the Elite Choose LoanPal
+          <p className="text-overline text-accent uppercase tracking-[0.2em] mb-4">The Paradigm Shift</p>
+          <h2 className="font-display text-display-md sm:text-display-lg text-white mb-6 tracking-tight">
+            Why the Elite Choose <span className="gradient-text">LoanPal</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-            By collapsing traditional financial constraints through code, we offer a lending experience that is mathematically superior.
+          <p className="text-body-lg text-white/40 max-w-xl mx-auto">
+            Mathematically superior lending through code.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 pb-16">
+        <div className="grid md:grid-cols-2 gap-5 pb-16 stagger-children">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
-            const delay = index * 100;
             return (
-              <div
-                key={index}
-                className="relative group animate-in fade-in slide-in-from-bottom-12 fill-mode-both"
-                style={{ animationDelay: `${delay}ms` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-
-                <div className="relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1 border border-white/10 group-hover:border-accent/30 flex flex-col h-full group/card">
-                  {/* Deep Background Image */}
+              <div key={index} className="group relative">
+                <div className="relative rounded-3xl overflow-hidden border border-white/[0.06] hover:border-accent/20 transition-all duration-500 hover:-translate-y-1 h-full border-gradient">
+                  {/* Background */}
                   <div className="absolute inset-0 z-0">
                     <img 
                       src={reason.image} 
                       alt={reason.title}
-                      className="w-full h-full object-cover opacity-20 group-hover/card:scale-105 group-hover/card:opacity-30 transition-all duration-700" 
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover opacity-[0.1] group-hover:scale-105 group-hover:opacity-[0.18] transition-all duration-700 will-change-transform" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/90 to-slate-900/60 mix-blend-multiply"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,25%,6%)] via-[hsl(220,25%,6%)]/80 to-[hsl(220,25%,6%)]/50"></div>
                   </div>
 
-                  {/* Card Content */}
-                  <div className="relative z-10 p-8 lg:p-10 flex flex-col h-full bg-slate-950/40 backdrop-blur-sm">
-                  <div className="flex items-start justify-between mb-8">
-                      <div className="w-16 h-16 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center shadow-lg group-hover:shadow-[0_0_20px_rgba(250,204,21,0.2)] transition-shadow">
-                        <Icon className="w-8 h-8 text-slate-300 group-hover:text-accent transition-colors" />
+                  <div className="relative z-10 p-8 lg:p-10 flex flex-col h-full">
+                    <div className="flex items-start justify-between mb-8">
+                      <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center group-hover:border-accent/30 transition-all duration-500">
+                        <Icon className="w-5 h-5 text-white/40 group-hover:text-accent transition-colors duration-500" />
                       </div>
                       <div className="text-right">
-                          <span className="block text-4xl lg:text-5xl font-bold font-display text-white group-hover:text-accent transition-colors drop-shadow-sm">
-                            {reason.stat}
-                          </span>
-                          <span className="text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1 block">
-                            {reason.statLabel}
-                          </span>
+                        <span className="block text-display-sm font-display text-white group-hover:text-accent transition-colors duration-500">
+                          {reason.stat}
+                        </span>
+                        <span className="text-overline text-white/25 uppercase mt-1 block">
+                          {reason.statLabel}
+                        </span>
                       </div>
-                  </div>
+                    </div>
 
-                  <div className="flex-1 space-y-4 pt-4 border-t border-white/5">
-                      <h3 className="text-2xl font-bold font-display text-white tracking-wide">
+                    <div className="flex-1 space-y-3 pt-6 border-t border-white/[0.04]">
+                      <h3 className="font-display text-heading text-white tracking-tight">
                         {reason.title}
                       </h3>
-                      <p className="text-slate-400 font-light leading-relaxed">
+                      <p className="text-caption text-white/35 leading-relaxed">
                         {reason.description}
                       </p>
-                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -105,35 +99,30 @@ export default function WhyChoose() {
           })}
         </div>
 
+        {/* Stats bar */}
         <div className="mt-10 relative rounded-3xl overflow-hidden animate-in fade-in zoom-in-95 duration-1000 delay-500 fill-mode-both">
-          {/* Deep dark gradient block */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-accent/20 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)]"></div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px]"></div>
+          <div className="absolute inset-0 bg-white/[0.02] border border-white/[0.06] rounded-3xl border-gradient"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/8 rounded-full blur-[100px]"></div>
           
-          <div className="relative p-12 lg:p-16 text-center z-10 border border-white/5 rounded-3xl">
-            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 font-display">
+          <div className="relative p-12 lg:p-16 text-center z-10">
+            <h3 className="font-display text-display-sm text-white mb-4 tracking-tight">
               Capital deployment at scale
             </h3>
-            <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto font-light">
-              We are quietly powering the ambitions of tens of thousands, operating with precision, speed, and absolute reliability.
+            <p className="text-body text-white/35 mb-14 max-w-xl mx-auto">
+              Quietly powering tens of thousands of ambitions with precision, speed, and reliability.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-              <div>
-                <div className="text-5xl font-bold font-display text-white mb-2 tracking-tight group-hover:text-accent transition-colors drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">50K+</div>
-                <div className="text-slate-500 text-sm uppercase tracking-widest font-semibold">Active Portfolios</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold font-display text-white mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">15m</div>
-                <div className="text-slate-500 text-sm uppercase tracking-widest font-semibold">Avg Dispersal</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold font-display text-white mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">99.9%</div>
-                <div className="text-slate-500 text-sm uppercase tracking-widest font-semibold">Uptime Status</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold font-display text-accent mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]">4.9</div>
-                <div className="text-slate-500 text-sm uppercase tracking-widest font-semibold">Client Rating</div>
-              </div>
+              {[
+                { val: '50K+', label: 'Active Portfolios' },
+                { val: '15m', label: 'Avg Dispersal' },
+                { val: '99.9%', label: 'Uptime' },
+                { val: '4.9', label: 'Rating', accent: true },
+              ].map((s, i) => (
+                <div key={i}>
+                  <div className={`text-display-sm font-display mb-2 tracking-tight ${s.accent ? 'text-accent' : 'text-white'}`}>{s.val}</div>
+                  <div className="text-overline text-white/25 uppercase">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

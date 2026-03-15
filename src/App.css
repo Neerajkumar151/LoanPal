@@ -1,4 +1,8 @@
+/* Global smooth scrolling and performance */
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
 }

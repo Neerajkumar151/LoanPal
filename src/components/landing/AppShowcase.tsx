@@ -2,105 +2,87 @@ import { ArrowRight, Bot, Cpu, Zap } from 'lucide-react';
 
 export default function AppShowcase() {
   return (
-    <section className="py-32 bg-slate-950 relative overflow-hidden">
-      {/* Decorative Orbs */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2"></div>
+    <section className="py-32 bg-[hsl(220,25%,6%)] relative overflow-hidden">
+      {/* Ambient */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[140px] -translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[hsl(200,100%,62%)]/6 rounded-full blur-[140px] translate-x-1/3 translate-y-1/3"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
         <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <p className="text-accent font-semibold tracking-wider uppercase text-sm mb-3">Experience the Future</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 font-display">
-            The LoanPal <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-600">Digital Ecosystem</span>
+          <p className="text-overline text-accent uppercase tracking-[0.2em] mb-4">Experience the Future</p>
+          <h2 className="font-display text-display-md sm:text-display-lg text-white mb-6 tracking-tight">
+            The LoanPal <span className="gradient-text">Ecosystem</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-            Where cutting-edge AI meets human-centric design. Experience a financial interface built for the modern era.
+          <p className="text-body-lg text-white/40 max-w-2xl mx-auto">
+            Where cutting-edge AI meets human-centric design. A financial interface built for the modern era.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-          {/* Visual Side */}
-          <div className="relative group p-4 animate-in fade-in slide-in-from-left-12 duration-1000 fill-mode-both">
-            <div className="relative aspect-square sm:aspect-video lg:aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-slate-900">
+          {/* Image */}
+          <div className="relative group animate-in fade-in slide-in-from-left-12 duration-1000 fill-mode-both">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.06] shadow-[var(--shadow-card)] bg-white/[0.02] border-gradient">
               <img 
                 src="/images/hero-app.png" 
                 alt="App Interface" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 will-change-transform"
+                loading="lazy"
+                decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,25%,6%)]/50 via-transparent to-transparent"></div>
             </div>
-            {/* Decorative background glass */}
-            <div className="absolute -inset-2 bg-white/5 backdrop-blur-3xl rounded-[3.5rem] -z-10 translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-700"></div>
           </div>
 
-          {/* Text Side */}
+          {/* Features */}
           <div className="space-y-8 animate-in fade-in slide-in-from-right-12 duration-1000 fill-mode-both">
-            <div className="flex gap-6 items-start">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-accent/50 transition-colors">
-                <Bot className="w-7 h-7 text-accent" />
+            {[
+              { icon: Bot, title: 'Intuitive AI Interaction', desc: 'Navigate your financial journey with a zero-friction interface. Our AI companion guides you through every step.' },
+              { icon: Zap, title: 'Instant Feedback Loops', desc: 'Real-time updates on your application status. Complex financial data displayed with elegant simplicity.' },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-6 items-start group/item">
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center flex-shrink-0 group-hover/item:border-accent/30 transition-all duration-500">
+                  <item.icon className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-display text-heading text-white mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-caption text-white/35 leading-relaxed">{item.desc}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3 font-display">Intuitive AI Interaction</h3>
-                <p className="text-slate-400 font-light leading-relaxed">
-                  Navigate your financial journey with a zero-friction interface. Our AI companion guides you through every step of the lending process.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 items-start">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-accent/50 transition-colors">
-                <Zap className="w-7 h-7 text-accent" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3 font-display">Instant Feedback Loops</h3>
-                <p className="text-slate-400 font-light leading-relaxed">
-                  Get real-time updates on your application status. Our system processes and displays complex financial data with elegant simplicity.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Text Side - Reverse for desktop */}
+          {/* Features - reversed */}
           <div className="order-2 lg:order-1 space-y-8 animate-in fade-in slide-in-from-left-12 duration-1000 fill-mode-both">
-            <div className="flex gap-6 items-start">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-accent/50 transition-colors">
-                <Cpu className="w-7 h-7 text-accent" />
+            {[
+              { icon: Cpu, title: 'Algorithmic Decisioning', desc: 'Experience the power of our quantum-inspired logic. Millions of data points analyzed for the best financial outcomes.' },
+              { icon: ArrowRight, title: 'Seamless Fund Delivery', desc: 'From approval to disbursement in seconds. Integrated payment rails ensure capital is exactly where you need it.' },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-6 items-start group/item">
+                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center flex-shrink-0 group-hover/item:border-accent/30 transition-all duration-500">
+                  <item.icon className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-display text-heading text-white mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-caption text-white/35 leading-relaxed">{item.desc}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3 font-display">Algorithmic Decisioning</h3>
-                <p className="text-slate-400 font-light leading-relaxed">
-                  Experience the power of our quantum-inspired logic. We analyze millions of data points to provide you with the best possible financial outcomes.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-6 items-start">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-accent/50 transition-colors">
-                <ArrowRight className="w-7 h-7 text-accent" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-3 font-display">Seamless Fund Delivery</h3>
-                <p className="text-slate-400 font-light leading-relaxed">
-                  From approval to disbursement in seconds. Our integrated payment rails ensure your capital is always exactly where you need it.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Visual Side */}
-          <div className="order-1 lg:order-2 relative group p-4 animate-in fade-in slide-in-from-right-12 duration-1000 fill-mode-both">
-            <div className="relative aspect-square sm:aspect-video lg:aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-slate-900">
+          {/* Image */}
+          <div className="order-1 lg:order-2 relative group animate-in fade-in slide-in-from-right-12 duration-1000 fill-mode-both">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.06] shadow-[var(--shadow-card)] bg-white/[0.02] border-gradient">
               <img 
                 src="/images/quantum-logic.png" 
                 alt="AI Engine" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 will-change-transform"
+                loading="lazy"
+                decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,25%,6%)]/50 via-transparent to-transparent"></div>
             </div>
-            {/* Decorative background glass */}
-            <div className="absolute -inset-2 bg-white/5 backdrop-blur-3xl rounded-[3.5rem] -z-10 -translate-x-4 translate-y-4 group-hover:-translate-x-6 group-hover:translate-y-6 transition-transform duration-700"></div>
           </div>
         </div>
       </div>

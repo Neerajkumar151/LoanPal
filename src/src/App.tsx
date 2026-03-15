@@ -1,0 +1,59 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import Contact from '@/pages/Contact';
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import Apply from "./pages/Apply";
+import Dashboard from "./pages/Dashboard";
+import EMICalculator from "./pages/EMICalculator";
+import NotFound from "./pages/NotFound";
+import TermsOfService from "./pages/TermsOfService";
+import RBICompliance from "./pages/RBICompliance";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import HelpCenter from "./pages/HelpCenter";
+import FAQ from "./pages/FAQ";
+import ScrollToTop from "./components/ScrollToTop";
+
+import GetLoanAmount from "./pages/GetLoanAmount";
+import LoanRepayment from "./pages/LoanRepayment";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <HelmetProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+          <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/apply" element={<Apply />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/emi-calculator" element={<EMICalculator />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+              <Route path="/RBI-Compliance" element={<RBICompliance />} />
+              <Route path="/Terms-of-Service" element={<TermsOfService />} />
+              <Route path="/Help-Center" element={<HelpCenter />} />
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/get-loan" element={<GetLoanAmount />} />
+              <Route path="/repayment" element={<LoanRepayment />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
+  </HelmetProvider>
+);
+
+export default App;

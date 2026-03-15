@@ -119,6 +119,30 @@ export type Database = {
           },
         ]
       }
+      floating_chat_messages: {
+        Row: {
+          content: string
+          created_at: string | null
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       loan_applications: {
         Row: {
           ai_decision: string | null
@@ -166,6 +190,66 @@ export type Database = {
           monthly_income?: number
           status?: string | null
           updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      loan_disbursements: {
+        Row: {
+          amount: number
+          created_at: string | null
+          id: string
+          loan_id: string
+          sanction_letter_url: string | null
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string | null
+          id?: string
+          loan_id: string
+          sanction_letter_url?: string | null
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string | null
+          id?: string
+          loan_id?: string
+          sanction_letter_url?: string | null
+          status?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      loan_repayments: {
+        Row: {
+          amount_paid: number
+          id: string
+          loan_id: string
+          payment_date: string | null
+          razorpay_payment_id: string | null
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          amount_paid: number
+          id?: string
+          loan_id: string
+          payment_date?: string | null
+          razorpay_payment_id?: string | null
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          amount_paid?: number
+          id?: string
+          loan_id?: string
+          payment_date?: string | null
+          razorpay_payment_id?: string | null
+          status?: string | null
           user_id?: string
         }
         Relationships: []
